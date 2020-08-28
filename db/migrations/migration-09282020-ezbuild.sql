@@ -4,4 +4,4 @@ CREATE TABLE IF NOT EXISTS users (
     password_digest TEXT NOT NULL,
     email VARCHAR(255),
     date_created DATETIME
-)
+);
