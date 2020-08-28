@@ -1,0 +1,85 @@
+body {
+  height: 100%;
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  background-color: rgba(51, 92, 103,1);
+  font-size: 1.2em;
+  color: rgba(242, 241, 239, 1);
+}
+.navLeft {
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+  padding: 0;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  color: rgba(242, 241, 239, 1);
+  text-decoration: none;
+}
+
+.container {
+  background-color: rgba(130, 48, 56,1); 
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  color: rgba(242, 241, 239, 1); 
+}
+
+.home {
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  margin:50px 5%;
+  width: 100%;
+}
+
+.brandStatement {
+  font-size: 4rem
+}
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-evenly;
+}
+.gamersHomeButton,.streamersHomeButton,.creatorsHomeButton {
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  height: 35vh;
+  width: 20vw;
+  margin: 20px;
+  padding: 20px;
+  cursor: pointer;
+}
+.nicheImage {
+  text-align: center;
+  background-color: rgba(0,0,0,.7);
+  border: 3px solid black;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+}
+
+.nicheImage img {
+  max-width: 20vw;
+  max-height: 30vh;
+  object-fit: cover;
+}
+footer {
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;           
+}
