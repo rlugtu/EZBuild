@@ -24,11 +24,17 @@ class App extends Component {
           <Route exact path="/" component={Home} />
 
           <Route exact path="/builds/gaming" render={() =>
-            <BuildsController currentPage="gamers" />} />
+            <BuildsController currentPage="Gamers" />} />
 
-          <Route exact path="/builds/streaming" render={() => <BuildsController currentPage="streamers" />} />
+          <Route exact path="/builds/streaming" render={() => <BuildsController currentPage="Streamers" />} />
 
-          <Route exact path="/builds/creators" render={() => <BuildsController currentPage="creators" />} />
+          <Route exact path="/builds/creators" render={() => <BuildsController currentPage="Creators" />} />
+
+          <Route exact path="/builds/gaming/:id" render={props => <BuildsController currentPage="single" currentId={props.match.params.id} />} />
+
+          <Route exact path="/builds/streaming/:id" render={props => <BuildsController currentPage="single" currentId={props.match.params.id} />} />
+
+          <Route exact path="/builds/creators/:id" render={props => <BuildsController currentPage="single" currentId={props.match.params.id} />} />
         </div>
         <Footer />
       </div>
