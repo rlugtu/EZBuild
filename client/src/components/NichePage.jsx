@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Redirect, Link } from 'react-router-dom'
 
 class NichePage extends Component {
     constructor(props) {
@@ -20,7 +21,7 @@ class NichePage extends Component {
                     {/* map through Niche Builds and render a component (to be made still ) with that builds info  */}
                     {this.state.allBuilds.map((product, i) =>
                         <div className="nicheProductSingle" key={i}>
-                            <img className="nicheImage" src="https://www.nzxt.com/assets/homepage/h510-elite-white-black-dc7369e78f982928f808609aa9879b8d8e84ea9138ddbaeec97a066ab415de98.png" alt={"computer"}></img>
+                            <Link to={'/builds/' + this.state.currentPage + '/' + i}><img className="nicheImage" src="https://www.nzxt.com/assets/homepage/h510-elite-white-black-dc7369e78f982928f808609aa9879b8d8e84ea9138ddbaeec97a066ab415de98.png" alt={"computer"}></img></Link>
                             <p>{product.name}</p>
                             <p>{product.tier}</p>
                             <p>{product.cpu}</p>

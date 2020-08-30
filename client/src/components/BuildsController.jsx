@@ -31,7 +31,9 @@ class BuildsController extends Component {
                     gpu: 'test gpu 3',
                     ram: 'test ram 3'
                 }],
-            selectedBuild: null
+            selectedBuild: props.selectedBuild,
+            currentId: props.currentId,
+            selectedNiche: props.selectedNiche
         }
     }
 
@@ -39,16 +41,17 @@ class BuildsController extends Component {
 
     // create a select build function to pass down into niche page, when build is selected have return value be a SINGLE BUILD's ID to be fetched then passed down into product page 
 
+
     decideWhichToRender() {
         switch (this.state.currentPage) {
-            case 'Gamers':
+            case 'gaming':
                 return <NichePage currentPage={this.state.currentPage} allBuilds={this.state.allBuilds} />
-            case 'Streamers':
+            case 'streaming':
                 return <NichePage currentPage={this.state.currentPage} allBuilds={this.state.allBuilds} />
-            case 'Creators':
+            case 'creators':
                 return <NichePage currentPage={this.state.currentPage} allBuilds={this.state.allBuilds} />
             case 'single':
-                return <ProductPage currentPage={this.state.currentPage} selectedBuild={this.state.selectedBuild} />
+                return <ProductPage currentPage={this.state.currentPage} selectedBuild={this.state.selectedBuild} selectedNiche={this.state.selectedNiche} currentId={this.state.currentId} />
             default:
                 return <Redirect push to="/" />
         }
