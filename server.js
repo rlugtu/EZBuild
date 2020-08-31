@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
-
+const buildRoutes = require('./routes/build-routes')
 const app = express();
 require('dotenv').config();
 
@@ -33,6 +33,8 @@ app.listen(PORT, () => {
 app.get('/', (req, res) => {
   res.send('Goodbye Cruel World!');
 });
+
+app.use('/builds', buildRoutes)
 
 app.use('*', (req, res) => {
   res.status(400).json({
