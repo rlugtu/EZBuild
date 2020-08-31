@@ -33,16 +33,36 @@ class BuildsController extends Component {
                 }],
             selectedBuild: props.selectedBuild,
             currentId: props.currentId,
-            selectedNiche: props.selectedNiche
+            selectedNiche: props.selectedNiche,
         }
     }
+
+
+    // getAllBuilds = () => {
+    //     fetch(`/builds/${this.state.currentPage}`, { credentials: 'include' })
+    //         .then(res => res.json())
+    //         .then(res => {
+    //             this.setState({
+    //                 allBuilds: res
+    //             })
+    //         }).catch(err => console.log(err))
+    // }
+    // componentDidMount() {
+    //     this.getAllBuilds()
+    // }
+
 
     // create a function that fetches from api and set the res to allbuilds then pass into the desired niche then refer to this in component did mount 
 
     // create a select build function to pass down into niche page, when build is selected have return value be a SINGLE BUILD's ID to be fetched then passed down into product page 
-
+    // setTier = () => {
+    //     this.setState({
+    //         tier: 'hi'
+    //     })
+    // }
 
     decideWhichToRender() {
+
         switch (this.state.currentPage) {
             case 'gaming':
                 return <NichePage currentPage={this.state.currentPage} allBuilds={this.state.allBuilds} />
