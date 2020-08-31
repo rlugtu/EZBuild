@@ -15,7 +15,8 @@ CREATE TABLE
 IF NOT EXISTS parts
 (
     id SERIAL PRIMARY KEY,
-    part_type VARCHAR (255),
+    cpu_id SERIAL,
+    gpu_id SERIAL,
     price INTEGER NOT NULL,
     price_tier VARCHAR (255),
     image_url VARCHAR (255),
@@ -31,10 +32,10 @@ IF NOT EXISTS parts
     mem_clock INTEGER,
     bus VARCHAR (255),
     /*Unique to RAM*/
-    capacity: VARCHAR (255),
+    capacity VARCHAR (255),
     /*Unique to hard drive*/
-    storage: VARCHAR (255)
-)
+    storage VARCHAR (255)
+);
 
 CREATE TABLE
 IF NOT EXISTS builds
@@ -44,22 +45,17 @@ IF NOT EXISTS builds
     build_type VARCHAR NOT NULL,
     build_name VARCHAR NOT NULL,
     build_description TEXT,
-    CONSTRAINT fk_cpu
-    FOREIGN KEY(cpu)
-    REFERENCES parts(id),
-    CONSTRAINT fk_gpu
-    FOREIGN KEY(gpu) 
-    REFERENCES parts(id),
-    CONSTRAINT fk_ram
-    FOREIGN KEY(ram)
-    REFERENCES parts(id),
-    CONSTRAINT fk_storage
-    FOREIGN KEY (storage)
-    REFERENCES parts(id),
-    CONSTRAINT fk_cooler
-    FOREIGN KEY(cooler)
-    REFERENCES parts(id),
-    CONSTRAINT fk_psu
-    FOREIGN KEY(psu)
-    REFERENCES parts(id)
+    cpu_id INTEGER NOT NULL,
+    gpu_id INTEGER NOT NULL
 );
+
+CREATE TABLE
+IF NOT EXISTS builds
+(
+    id SERIAL PRIMARY KEY,
+    price_tier VARCHAR (255),
+    build_type VARCHAR NOT NULL,
+    build_name VARCHAR NOT NULL,
+    build_description TEXT,
+    FOREIGN KEY (cpu_id)
+    REFERENCES parts(id));
