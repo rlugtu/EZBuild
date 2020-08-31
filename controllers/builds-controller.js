@@ -6,18 +6,46 @@ buildController.getGaming = (req, res, next) => {
         .then((build) => {
             res.json({
                 message: 'ok',
-                data: { build }
+                build
             })
         })
         .catch(next)
 }
+buildController.getBronzeParts = (req, res, next) => {
+    Build.getGamingBronze()
+        .then((parts) => {
+            res.json({
+                parts
+            })
+        })
+        .catch(next)
+}
+buildController.getSilverParts = (req, res, next) => {
+    Build.getGamingSilver()
+        .then((parts) => {
+            res.json({
+                parts
+            })
+        })
+        .catch(next)
+}
+buildController.getGoldParts = (req, res, next) => {
+    Build.getGamingGold()
+        .then((parts) => {
+            res.json({
+                parts
+            })
+        })
+        .catch(next)
+}
+
 
 buildController.getStreaming = (req, res, next) => {
     Build.getStreaming()
         .then((build) => {
             res.json({
                 message: 'ok',
-                data: { build }
+                build
             })
         })
         .catch(next)
@@ -28,7 +56,7 @@ buildController.getCreators = (req, res, next) => {
         .then((build) => {
             res.json({
                 message: 'ok',
-                data: { build }
+                build
             })
         })
         .catch(next)
