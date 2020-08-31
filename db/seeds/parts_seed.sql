@@ -17,6 +17,12 @@ VALUES (3, 250, 'gold', '/db/assets/intelc3.jpeg', 'Unless you need to run some 
 INSERT INTO PARTS (gpu_id, price, price_tier, image_url, make, model, base_clock, boost_clock, cuda_cores, mem_bandwidth, gysync, freesync)
 VALUES ();
 */
+
+INSERT INTO PARTS (gpu_id, price, price_tier, image_url, make, model, base_clock, boost_clock, cuda_cores, mem_bandwidth, gysync, freesync)
+VALUES (1, 100, 'bronze', 'http://google.com', 'Radeon', 'RX 5700');
+INSERT INTO PARTS (gpu_id, price, price_tier, image_url, gpu_make, gpu_model) VALUES (2, 200, 'silver', 'http://google.com', 'NVIDIA', 'GeForce RTX');
+INSERT INTO PARTS (gpu_id, price, price_tier, image_url, gpu_make, gpu_model) VALUES (3, 300, 'gold', 'http://google.com', 'NVIDIA', 'GeForce GTX');
+
 /*RAM
 INSERT INTO PARTS (capacity, price, transfer_rate)
 VALUES ();
