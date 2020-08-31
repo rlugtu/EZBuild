@@ -21,16 +21,18 @@ IF NOT EXISTS parts
     price_tier VARCHAR (255),
     image_url VARCHAR (255),
     part_description TEXT,
-    make VARCHAR (255),
-    model VARCHAR (255),
     /*Unique to CPU*/
     cores INTEGER,
     clock_speed INTEGER,
     sockets INTEGER,
+    cpu_make VARCHAR (255),
+    cpu_model VARCHAR (255),
     /*Unique to GPU*/
     memory INTEGER,
     mem_clock INTEGER,
     bus VARCHAR (255),
+    gpu_make VARCHAR (255),
+    gpu_model VARCHAR (255),
     /*Unique to RAM*/
     capacity VARCHAR (255),
     /*Unique to hard drive*/
