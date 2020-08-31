@@ -45,8 +45,8 @@ IF NOT EXISTS builds
     build_type VARCHAR NOT NULL,
     build_name VARCHAR NOT NULL,
     build_description TEXT,
-    cpu_id INTEGER,
-    gpu_id INTEGER
+    cpu_id INTEGER NOT NULL,
+    gpu_id INTEGER NOT NULL
 );
 
 CREATE TABLE
