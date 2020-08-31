@@ -31,7 +31,7 @@ app.listen(PORT, () => {
 })
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send('Goodbye Cruel World!');
 });
 
 app.use('*', (req, res) => {
