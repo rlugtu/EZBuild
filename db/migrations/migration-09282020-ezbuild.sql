@@ -48,14 +48,3 @@ IF NOT EXISTS builds
     cpu_id INTEGER NOT NULL,
     gpu_id INTEGER NOT NULL
 );
-
-CREATE TABLE
-IF NOT EXISTS builds
-(
-    id SERIAL PRIMARY KEY,
-    price_tier VARCHAR (255),
-    build_type VARCHAR NOT NULL,
-    build_name VARCHAR NOT NULL,
-    build_description TEXT,
-    FOREIGN KEY (cpu_id)
-    REFERENCES parts(id));
