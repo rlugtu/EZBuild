@@ -30,7 +30,7 @@ VALUES
 
 
 
-INSERT INTO BUILDS
+/*INSERT INTO BUILDS
     (price_tier, build_type, build_name, build_description, cpu_id, gpu_id, ram_id, ssd_id)
 VALUES
     ('bronze', 'creator', 'cierva', 'your best and most cost-effective machine for video, audio, and image editing', 3, 3, 3);
@@ -43,4 +43,4 @@ VALUES
 INSERT INTO BUILDS
     (price_tier, build_type, build_name, build_description, cpu_id, gpu_id, ram_id, ssd_id)
 VALUES
-    ('gold', 'creator', 'elefante', 'well-balanced specs that should be enough for the majority of creators', 3, 3, 3);
+    ('gold', 'creator', 'elefante', 'well-balanced specs that should be enough for the majority of creators', 3, 3, 3);*/
