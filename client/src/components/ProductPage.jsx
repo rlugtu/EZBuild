@@ -28,12 +28,12 @@ class ProductPage extends Component {
     render() {
         return (
             <div>
-                {/* {this.state.dataLoaded ? <div>
+                {this.state.dataLoaded ? <div>
                     {this.state.allParts.map((part, i) =>
                         <div key={i}>
                             <p>{part.make} {part.model} </p>
                         </div>)}
-                </div> : null} */}
+                </div> : null}
             </div>
         )
     }
