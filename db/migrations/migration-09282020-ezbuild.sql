@@ -50,5 +50,6 @@ IF NOT EXISTS builds
     build_description TEXT,
     cpu_id INTEGER NOT NULL,
     gpu_id INTEGER NOT NULL,
-    ram_id INTEGER NOT NULL
+    ram_id INTEGER NOT NULL,
+    ssd_ID INTEGER NOT NULL
 );
