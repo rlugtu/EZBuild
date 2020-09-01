@@ -17,6 +17,8 @@ IF NOT EXISTS parts
     id SERIAL PRIMARY KEY,
     cpu_id SERIAL,
     gpu_id SERIAL,
+    make VARCHAR (255),
+    model VARCHAR (255),
     price INTEGER NOT NULL,
     price_tier VARCHAR (255),
     image_url VARCHAR (255),
@@ -26,20 +28,16 @@ IF NOT EXISTS parts
     clock_speed INTEGER,
     generation VARCHAR (255),
     /*Unique to GPU*/
-    base_clock INTEGER,
     boost_clock INTEGER,
-    cuda_cores INTEGER,
-    mem_bandwidth VARCHAR (255),
+    memory VARCHAR (255),
     gsync BOOLEAN,
     freesync BOOLEAN,
-    make VARCHAR (255),
-    model VARCHAR (255),
     /*Unique to RAM*/
     capacity VARCHAR (255),
     ram_id SERIAL,
     transfer_rate INTEGER,
     /*Unique to hard drive*/
-    storage VARCHAR (255)
+    ssd_id SERIAL
 );
 
 CREATE TABLE
