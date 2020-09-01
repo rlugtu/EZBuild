@@ -12,19 +12,19 @@ Build.getGamingBronze = () => {
     return db.query(`
     SELECT parts.make, parts.model, builds.build_name
         FROM builds
-        INNER JOIN parts ON builds.cpu_id=parts.cpu_id AND builds.gpu_id=parts.gpu_id AND builds.build_type='gaming' AND builds.build_name='le tigre';`)
+        INNER JOIN parts ON builds.cpu_id=parts.cpu_id AND builds.gpu_id=parts.gpu_id AND builds.build_type='gaming' AND builds.price_tier='bronze';`)
 }
 Build.getGamingSilver = () => {
     return db.query(`
     SELECT parts.make, parts.model, builds.build_name
         FROM builds
-        INNER JOIN parts ON builds.cpu_id=parts.cpu_id AND builds.gpu_id=parts.gpu_id AND builds.build_type='gaming' AND builds.build_name='el leon';`)
+        INNER JOIN parts ON builds.cpu_id=parts.cpu_id AND builds.gpu_id=parts.gpu_id AND builds.build_type='gaming' AND builds.price_tier='silver';`)
 }
 Build.getGamingGold = () => {
     return db.query(`
     SELECT parts.make, parts.model, builds.build_name
         FROM builds
-        INNER JOIN parts ON builds.cpu_id=parts.cpu_id AND builds.gpu_id=parts.gpu_id AND builds.build_type='gaming' AND builds.build_name='le lion';`)
+        INNER JOIN parts ON builds.cpu_id=parts.cpu_id AND builds.gpu_id=parts.gpu_id AND builds.build_type='gaming' AND builds.price_tier='gold';`)
 }
 
 Build.getStreaming = () => {
@@ -33,6 +33,30 @@ Build.getStreaming = () => {
     // FROM builds
     // INNER JOIN parts ON builds.cpu_id=parts.cpu_id AND builds.gpu_id=parts.gpu_id AND builds.build_type='streaming';`)
 }
+
+Build.getStreamingBronze = () => {
+    return db.query(`
+    SELECT parts.make, parts.model, builds.build_name
+        FROM builds
+        INNER JOIN parts ON builds.cpu_id=parts.cpu_id AND builds.gpu_id=parts.gpu_id AND builds.build_type='streaming' AND builds.price_tier='bronze';`)
+}
+
+Build.getStreamingSilver = () => {
+    return db.query(`
+    SELECT parts.make, parts.model, builds.build_name
+        FROM builds
+        INNER JOIN parts ON builds.cpu_id=parts.cpu_id AND builds.gpu_id=parts.gpu_id AND builds.build_type='streaming' AND builds.price_tier='silver';`)
+}
+
+Build.getStreamingGold = () => {
+    return db.query(`
+    SELECT parts.make, parts.model, builds.build_name
+        FROM builds
+        INNER JOIN parts ON builds.cpu_id=parts.cpu_id AND builds.gpu_id=parts.gpu_id AND builds.build_type='streaming' AND builds.price_tier='gold';`)
+}
+
+
+
 Build.getCreators = () => {
     return db.query(`SELECT parts.make, parts.model, builds.build_name
     FROM builds

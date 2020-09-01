@@ -11,7 +11,7 @@ buildController.getGaming = (req, res, next) => {
         })
         .catch(next)
 }
-buildController.getBronzeParts = (req, res, next) => {
+buildController.getGamingBronzeParts = (req, res, next) => {
     Build.getGamingBronze()
         .then((parts) => {
             res.json({
@@ -20,7 +20,7 @@ buildController.getBronzeParts = (req, res, next) => {
         })
         .catch(next)
 }
-buildController.getSilverParts = (req, res, next) => {
+buildController.getGamingSilverParts = (req, res, next) => {
     Build.getGamingSilver()
         .then((parts) => {
             res.json({
@@ -29,7 +29,7 @@ buildController.getSilverParts = (req, res, next) => {
         })
         .catch(next)
 }
-buildController.getGoldParts = (req, res, next) => {
+buildController.getGamingGoldParts = (req, res, next) => {
     Build.getGamingGold()
         .then((parts) => {
             res.json({
@@ -46,6 +46,35 @@ buildController.getStreaming = (req, res, next) => {
             res.json({
                 message: 'ok',
                 build
+            })
+        })
+        .catch(next)
+}
+
+buildController.getStreamingBronzeParts = (req, res, next) => {
+    Build.getStreamingBronze()
+        .then((parts) => {
+            res.json({
+                parts
+            })
+        })
+        .catch(next)
+}
+
+buildController.getStreamingSilverParts = (req, res, next) => {
+    Build.getStreamingSilver()
+        .then((parts) => {
+            res.json({
+                parts
+            })
+        })
+        .catch(next)
+}
+buildController.getStreamingGoldParts = (req, res, next) => {
+    Build.getStreamingGold()
+        .then((parts) => {
+            res.json({
+                parts
             })
         })
         .catch(next)
