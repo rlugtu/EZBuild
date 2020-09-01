@@ -1,5 +1,9 @@
 // Each build will offer a unique combination of CPU and GPU, so we'll be using that as our standard for our select queries.
 
+SELECT parts.ram_id, parts.capacity, parts.price, builds.build_name
+FROM parts
+INNER JOIN builds ON builds.ram_id=parts.ram_id AND builds.build_name='gato';
+
 // Get all gaming builds and display CPU/GPU
     SELECT parts.name, parts.model, builds.build_name
     FROM builds
