@@ -12,9 +12,12 @@ buildRoutes.get('/gaming/gold', buildController.getGamingGoldParts)
 buildRoutes.get('/streaming/bronze', buildController.getStreamingBronzeParts)
 buildRoutes.get('/streaming/silver', buildController.getStreamingSilverParts)
 buildRoutes.get('/streaming/gold', buildController.getStreamingGoldParts)
-
 buildRoutes.get('/streaming', buildController.getStreaming)
+
 buildRoutes.get('/creators', buildController.getCreators)
+buildRoutes.get('/creators/bronze', buildController.getCreatorsBronze)
+buildRoutes.get('/creators/silver', buildController.getCreatorsSilver)
+buildRoutes.get('/creators/gold', buildController.getCreatorsGold)
 
 
 

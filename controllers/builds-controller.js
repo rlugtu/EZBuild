@@ -91,5 +91,38 @@ buildController.getCreators = (req, res, next) => {
         .catch(next)
 }
 
+buildController.getCreatorsBronze = (req, res, next) => {
+    Build.getCreatorsBronze()
+        .then((build) => {
+            res.json({
+                message: 'ok',
+                build
+            })
+        })
+        .catch(next)
+}
+
+buildController.getCreatorsSilver = (req, res, next) => {
+    Build.getCreatorsSilver()
+        .then((build) => {
+            res.json({
+                message: 'ok',
+                build
+            })
+        })
+        .catch(next)
+}
+
+buildController.getCreatorsGold = (req, res, next) => {
+    Build.getCreatorsGold()
+        .then((build) => {
+            res.json({
+                message: 'ok',
+                build
+            })
+        })
+        .catch(next)
+}
+
 
 module.exports = buildController

@@ -62,6 +62,28 @@ Build.getCreators = () => {
     FROM builds
     INNER JOIN parts ON builds.cpu_id=parts.cpu_id AND builds.gpu_id=parts.gpu_id AND builds.build_type='creators';`)
 }
+Build.getCreatorsBronze = () => {
+    return db.query(`
+    SELECT parts.make, parts.model, builds.build_name
+        FROM builds
+        INNER JOIN parts ON builds.cpu_id=parts.cpu_id AND builds.gpu_id=parts.gpu_id AND builds.build_type='creators' AND builds.price_tier='bronze';`)
+}
+
+Build.getCreatorsSilver = () => {
+    return db.query(`
+    SELECT parts.make, parts.model, builds.build_name
+        FROM builds
+        INNER JOIN parts ON builds.cpu_id=parts.cpu_id AND builds.gpu_id=parts.gpu_id AND builds.build_type='creators' AND builds.price_tier='silver';`)
+}
+
+Build.getCreatorsGold = () => {
+    return db.query(`
+    SELECT parts.make, parts.model, builds.build_name
+        FROM builds
+        INNER JOIN parts ON builds.cpu_id=parts.cpu_id AND builds.gpu_id=parts.gpu_id AND builds.build_type='creators' AND builds.price_tier='gold';`)
+}
+
+
 
 module.exports = Build
 
