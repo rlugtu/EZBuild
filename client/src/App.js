@@ -5,6 +5,7 @@ import Home from './components/Home'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import BuildsController from './components/BuildsController'
+import Login from './components/Login';
 
 
 class App extends Component {
@@ -35,7 +36,9 @@ class App extends Component {
           <Route exact path="/builds/streaming/:id" render={props => <BuildsController selectedNiche='streaming' currentPage="single" currentId={props.match.params.id} selectedBuild={props.match.params.id} />} />
 
           <Route exact path="/builds/creators/:id" render={props => <BuildsController currentPage="single" selectedNiche='creators' currentId={props.match.params.id} selectedBuild={props.match.params.id} />} />
+        
         </div>
+        <Login/>
         <Footer />
       </div>
     )
