@@ -1,31 +1,78 @@
 // Each build will offer a unique combination of CPU and GPU, so we'll be using that as our standard for our select queries.
 
 // Get all gaming builds and display CPU/GPU
-SELECT parts.make, parts.model, builds.build_name
-FROM builds
-INNER JOIN parts ON builds.cpu_id = parts.cpu_id AND builds.gpu_id = parts.gpu_id AND builds.build_type = 'gaming';
+    SELECT parts.name, parts.model, builds.build_name
+    FROM builds
+    INNER JOIN parts ON builds.cpu_id=parts.cpu_id AND builds.build_type='gaming';
 
 // Get all streaming builds and display CPU/GPU
 SELECT parts.make, parts.model, builds.build_name
 FROM builds
-INNER JOIN parts ON builds.cpu_id = parts.cpu_id AND builds.gpu_id = parts.gpu_id AND builds.build_type = 'streaming';
+INNER JOIN parts ON builds.cpu_id=parts.cpu_id AND builds.gpu_id=parts.gpu_id AND builds.build_type='streaming';
 
-// Get all creators builds and display CPU/GPU
+// Get all creation builds and display CPU/GPU
 SELECT parts.make, parts.model, builds.build_name
 FROM builds
-INNER JOIN parts ON builds.cpu_id = parts.cpu_id AND builds.gpu_id = parts.gpu_id AND builds.build_type = 'creators';
+INNER JOIN parts ON builds.cpu_id=parts.cpu_id AND builds.gpu_id=parts.gpu_id AND builds.build_type='creation';
 
 // Get all cheap builds
 SELECT parts.make, parts.model, builds.build_name
 FROM builds
-INNER JOIN parts ON builds.cpu_id = parts.cpu_id AND builds.gpu_id = parts.gpu_id AND builds.price_tier = 'bronze';
+INNER JOIN parts ON builds.cpu_id=parts.cpu_id AND builds.gpu_id=parts.gpu_id AND builds.price_tier='bronze';
 
 // Get all mid-range builds
 SELECT parts.make, parts.model, builds.build_name
 FROM builds
-INNER JOIN parts ON builds.cpu_id = parts.cpu_id AND builds.gpu_id = parts.gpu_id AND builds.price_tier = 'silver';
+INNER JOIN parts ON builds.cpu_id=parts.cpu_id AND builds.gpu_id=parts.gpu_id AND builds.price_tier='silver';
 
 // Get all luxury builds
 SELECT parts.make, parts.model, builds.build_name
 FROM builds
-INNER JOIN parts ON builds.cpu_id = parts.cpu_id AND builds.gpu_id = parts.gpu_id AND builds.price_tier = 'gold';
+INNER JOIN parts ON builds.cpu_id=parts.cpu_id AND builds.gpu_id=parts.gpu_id AND builds.price_tier='gold';
+
+SELECT parts.make, parts.model, builds.build_name
+FROM parts
+INNER JOIN builds ON builds.cpu_id=parts.cpu_id AND builds.gpu_id=parts.gpu_id AND builds.build_type='gaming';
+
+SELECT parts.make, parts.model, builds.build_name
+FROM parts
+(INNER JOIN builds ON builds.cpu_id = parts.cpu_id AND builds.build_type='gaming') AND
+(INNER JOIN builds ON gpu_id = parts.gpu_id AND builds.build_type='gaming');
+
+SELECT parts.make, parts.model, builds.build_name
+FROM builds
+INNER JOIN parts ON builds.cpu_id=parts.cpu_id AND builds.build_type='gaming';
+
+SELECT parts.cpu_make, parts.cpu_model, parts.gpu_make, parts.gpu_model, builds.build_name
+FROM builds
+INNER JOIN parts ON builds.cpu_id=parts.cpu_id;
+
+SELECT parts.cpu_make, parts.cpu_model
+FROM builds
+FULL OUTER JOIN parts
+ON builds.cpu_id = parts.cpu_id
+WHERE builds.build_type='gaming';
+
+SELECT *
+FROM builds
+WHERE builds.cpu_id = 1;
+
+SELECT parts.cpu_make, parts.cpu_model
+FROM parts
+WHERE id = 1;
+
+SELECT parts.cpu_make, parts.cpu_model, parts.gpu_make, parts.gpu_model, builds.build_name
+FROM builds
+INNER JOIN parts ON builds.cpu_id=parts.cpu_id AND builds.build_type='gaming';
+
+SELECT parts.cpu_make, parts.cpu_model, parts.gpu_make, parts.gpu_model, builds.build_name
+FROM builds
+INNER JOIN parts ON builds.gpu_id=parts.gpu_id AND builds.build_name='il pinguino';
+
+SELECT parts.cpu_make, parts.cpu_model, builds.build_name
+FROM   builds
+INNER JOIN parts on builds.cpu_id=parts.cpu_id AND builds.build_type='gaming'
+UNION ALL
+SELECT parts.gpu_make, parts.gpu_model, builds.build_name
+FROM   builds
+INNER JOIN parts on builds.gpu_id=parts.gpu_id AND builds.build_type='gaming';

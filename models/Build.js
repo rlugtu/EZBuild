@@ -58,9 +58,10 @@ Build.getStreamingGold = () => {
 
 
 Build.getCreators = () => {
-    return db.query(`SELECT parts.make, parts.model, builds.build_name
-    FROM builds
-    INNER JOIN parts ON builds.cpu_id=parts.cpu_id AND builds.gpu_id=parts.gpu_id AND builds.build_type='creators';`)
+    return db.query(`SELECT * FROM builds WHERE build_type ='creators';`)
+    // return db.query(`SELECT parts.make, parts.model, builds.build_name
+    // FROM builds
+    // INNER JOIN parts ON builds.cpu_id=parts.cpu_id AND builds.gpu_id=parts.gpu_id AND builds.build_type='creators';`)
 }
 Build.getCreatorsBronze = () => {
     return db.query(`
