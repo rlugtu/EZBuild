@@ -19,6 +19,17 @@ class App extends Component {
     }
   }
 
+  componentDidMount() {
+    fetch('/api/auth/verify', { credentials: 'include' })
+      .then(res => res.json())
+      .then(res => {
+        this.setState({
+          auth: res.auth,
+          user: res.data.user,
+        })
+      }).catch(err => console.log(err));
+  }
+
   render() {
     return (
       <div className="App">
