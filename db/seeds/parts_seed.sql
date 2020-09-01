@@ -63,12 +63,18 @@ INSERT INTO PARTS
     (ssd_id, capacity, price)
 VALUES
     (1, '256 GB', 50);
+
+INSERT INTO PARTS
 VALUES
-(2, '512 GB', 75);
+    (2, '512 GB', 75);
+
+INSERT INTO PARTS
 VALUES
-(3, '1 TB', 100);
+    (3, '1 TB', 100);
+
+INSERT INTO PARTS
 VALUES
-(4, '2 TB', 150);
+    (4, '2 TB', 150);
 
 INSERT INTO PARTS
     (model, price_tier, price)
