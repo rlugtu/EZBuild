@@ -7,7 +7,11 @@ class Login extends Component{
             username:'',
             password:''
         }
+        
+        this.handleInputChange=this.handleInputChange.bind(this);
+        this.handleLoginSubmit=this.handleLoginSubmit.bind(this);
     }
+    
 
     handleInputChange(e){
         const name=e.target.name;
@@ -28,8 +32,12 @@ class Login extends Component{
             body:JSON.stringify(data)
         }).then(res=>res.json())
           .then(res=>{
-              console.log(res);
-          })
+              this.setState({
+                  auth:res.auth,
+                  user:res.data.user,
+              })
+              
+          }).catch(err => console.log(err));
     }
 
     render(){

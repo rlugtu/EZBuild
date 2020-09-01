@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route } from 'react-router-dom'
+import { BrowserRouter as Router,  Redirect } from 'react-router-dom';
 import Home from './components/Home'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import BuildsController from './components/BuildsController'
 import Login from './components/Login';
+import Register from './components/Register'
 
 
 class App extends Component {
@@ -23,6 +25,16 @@ class App extends Component {
         <Header />
         <div className="container">
           <Route exact path="/" component={Home} />
+          <Route exact path='/user/login' render={()=>(
+            this.state.auth
+            ?<Redirect to='/user' />
+            :<Login handleLoginSubmit={this.handleLoginSubmit}/>
+          )} />
+          <Route exact path='/user/Register' render={()=>(
+            this.state.auth
+            ?<Redirect to ='/user' />
+            :<Register handleRegisterSubmit={this.handleRegisterSubmit} />
+          )} />
 
           <Route exact path="/builds/gaming" render={() =>
             <BuildsController currentPage="gaming" />} />
@@ -38,7 +50,6 @@ class App extends Component {
           <Route exact path="/builds/creators/:id" render={props => <BuildsController currentPage="single" selectedNiche='creators' currentId={props.match.params.id} selectedBuild={props.match.params.id} />} />
         
         </div>
-        <Login/>
         <Footer />
       </div>
     )

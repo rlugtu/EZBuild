@@ -10,6 +10,8 @@ const Header = (props) => {
                 <li><Link to="/builds/gaming">Gamers</Link></li>
                 <li><Link to="/builds/streaming">Streamers</Link></li>
                 <li><Link to="/builds/creators">Creators</Link></li>
+                <li><Link to='/user/login'>Login</Link></li>
+                <li><Link to='/user/register'>Register</Link></li>
             </ul>
             <ul>
                 <li><Link to="/user">MyBuild</Link></li>
