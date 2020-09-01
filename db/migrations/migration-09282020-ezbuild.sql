@@ -24,8 +24,6 @@ IF NOT EXISTS parts
     /*Unique to CPU*/
     cores INTEGER,
     clock_speed INTEGER,
-    cpu_make VARCHAR (255),
-    cpu_model VARCHAR (255),
     generation VARCHAR (255),
     /*Unique to GPU*/
     base_clock INTEGER,
@@ -34,10 +32,12 @@ IF NOT EXISTS parts
     mem_bandwidth VARCHAR (255),
     gsync BOOLEAN,
     freesync BOOLEAN,
-    gpu_make VARCHAR (255),
-    gpu_model VARCHAR (255),
+    make VARCHAR (255),
+    model VARCHAR (255),
     /*Unique to RAM*/
     capacity VARCHAR (255),
+    ram_id SERIAL,
+    transfer_rate INTEGER,
     /*Unique to hard drive*/
     storage VARCHAR (255)
 );
@@ -51,5 +51,6 @@ IF NOT EXISTS builds
     build_name VARCHAR NOT NULL,
     build_description TEXT,
     cpu_id INTEGER NOT NULL,
-    gpu_id INTEGER NOT NULL
+    gpu_id INTEGER NOT NULL,
+    ram_id INTEGER NOT NULL
 );
