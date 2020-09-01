@@ -1,5 +1,4 @@
-/* Parts holds all of our parts and all possible specs a part could have as properties. Because of that relative complexity, I'll be putting templates in place for each part type. Be sure to use the appropriate template if adding anything. */
-
+/* Parts holds all of our parts and all possible specs a part could have as properties. Because of that relative complexity, I'll be putting templates in place for each part type. Be sure to use the appropriate template if adding anything. *
 /*CPU and GPU are primary components. They'll serve as the fixtures of our builds, and while some may repeat, GPU+CPU will be unique for each.
 /*CPU
 CPU ID is a unique ID that is used - in conjunction with GPU ID - to link to each build.
