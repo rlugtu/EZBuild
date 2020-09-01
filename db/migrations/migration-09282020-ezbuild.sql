@@ -24,13 +24,16 @@ IF NOT EXISTS parts
     /*Unique to CPU*/
     cores INTEGER,
     clock_speed INTEGER,
-    sockets INTEGER,
     cpu_make VARCHAR (255),
     cpu_model VARCHAR (255),
+    generation VARCHAR (255),
     /*Unique to GPU*/
-    memory INTEGER,
-    mem_clock INTEGER,
-    bus VARCHAR (255),
+    base_clock INTEGER,
+    boost_clock INTEGER,
+    cuda_cores INTEGER,
+    mem_bandwidth VARCHAR (255),
+    gsync BOOLEAN,
+    freesync BOOLEAN,
     gpu_make VARCHAR (255),
     gpu_model VARCHAR (255),
     /*Unique to RAM*/
