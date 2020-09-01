@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import ProductInfoPage from './ProductInfoPage'
 
 class ProductPage extends Component {
     constructor(props) {
@@ -9,6 +9,9 @@ class ProductPage extends Component {
             selectedBuild: props.selectedBuild,
             allParts: null,
             dataLoaded: false,
+            showInfo: false,
+            selectedPart: null,
+            totalCost: 0
         }
     }
     getAllParts = () => {
@@ -23,18 +26,58 @@ class ProductPage extends Component {
     }
     componentDidMount() {
         this.getAllParts()
+        this.getTotalCost()
     }
+
+    //SHOW INFO BASED ON PART THAT IS CLICKED
+    toggleShowInfo = () => {
+        this.setState({
+            showInfo: !this.state.showInfo
+        })
+    }
+    setSelectedPart = (index) => {
+        this.setState({
+            selectedPart: index
+        })
+    }
+
+
+    getTotalCost = () => {
+        let total = 0
+        if (this.state.dataLoaded) {
+            this.state.allParts.map((part) => {
+                console.log('hi')
+                total += part.price
+                return total
+            })
+            this.setState({
+                totalCost: total
+            })
+        }
+        return
+    }
+
 
     render() {
         return (
-            <div>
-                {this.state.dataLoaded ? <div>
-                    {this.state.allParts.map((part, i) =>
-                        <div key={i}>
-                            <p>{part.make} {part.model} </p>
-                        </div>)}
-                </div> : null}
+            <div className="productBody">
+                <h1>{this.state.currentId[0].toUpperCase() + this.state.currentId.slice(1)} Tier</h1>
+                <div className="productContainer">
+                    {this.state.dataLoaded ?
+                        <div className="productContent">
+                            {this.state.allParts.map((part, i) =>
+                                <div className="productInput" key={i}>
+                                    <p onClick={() => { this.toggleShowInfo(); this.setSelectedPart(i) }}>{part.make} {part.model} ${part.price} </p>
+                                </div>)}
+                        </div>
+                        : null}
+
+                    {this.state.showInfo ?
+                        <ProductInfoPage allParts={this.state.allParts} toggleShowInfo={this.toggleShowInfo} selectedPart={this.state.selectedPart} />
+                        : null}
+                </div>
             </div>
+
         )
     }
 }
