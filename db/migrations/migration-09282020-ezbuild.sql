@@ -15,8 +15,8 @@ CREATE TABLE
 IF NOT EXISTS parts
 (
     id SERIAL PRIMARY KEY,
-    cpu_id SERIAL,
-    gpu_id SERIAL,
+    cpu_id INTEGER,
+    gpu_id INTEGER,
     make VARCHAR (255),
     model VARCHAR (255),
     price INTEGER NOT NULL,
@@ -34,10 +34,10 @@ IF NOT EXISTS parts
     freesync BOOLEAN,
     /*Unique to RAM*/
     capacity VARCHAR (255),
-    ram_id SERIAL,
+    ram_id INTEGER,
     transfer_rate INTEGER,
     /*Unique to hard drive*/
-    ssd_id SERIAL
+    ssd_id INTEGER
 );
 
 CREATE TABLE
