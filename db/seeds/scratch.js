@@ -1,11 +1,37 @@
+
+SELECT *
+FROM parts
+INNER JOIN builds ON (builds.ram_id=parts.ram_id OR 
+    builds.cpu_id=parts.cpu_id OR 
+    builds.gpu_id=parts.gpu_id OR 
+    builds.ssd_id=parts.ssd_id) 
+AND builds.build_name='gato'
+GROUP BY parts.id, builds.id;
+
+SELECT *
+FROM parts
+INNER JOIN builds ON (builds.ram_id=parts.ram_id OR builds.cpu_id=parts.cpu_id OR builds.gpu_id=parts.gpu_id OR builds.ssd_id=parts.ssd_id) 
+AND builds.build_name='tigre';
 // Each build will offer a unique combination of CPU and GPU, so we'll be using that as our standard for our select queries.
+
+SELECT parts.ram_id, parts.capacity, parts.price, builds.build_name
+FROM parts
+INNER JOIN builds ON builds.ram_id=parts.ram_id AND builds.build_name='gato';
 
 // Get all gaming builds and display CPU/GPU
     SELECT parts.name, parts.model, builds.build_name
     FROM builds
     INNER JOIN parts ON builds.cpu_id=parts.cpu_id AND builds.build_type='gaming';
 
-// Get all streaming builds and display CPU/GPU
+SELECT parts.capacity, parts.ram_id, builds.build_name
+FROM builds
+INNER JOIN parts on builds.ram_id = parts.ram_id;
+    // Get all streaming builds and display CPU/GPU
+SELECT parts.make, parts.model, parts.ram_id, parts.capacity, builds.build_name
+FROM builds
+INNER JOIN parts ON builds.cpu_id=parts.cpu_id AND builds.gpu_id=parts.gpu_id AND builds.build_name='gato';
+
+
 SELECT parts.make, parts.model, builds.build_name
 FROM builds
 INNER JOIN parts ON builds.cpu_id=parts.cpu_id AND builds.gpu_id=parts.gpu_id AND builds.build_type='streaming';

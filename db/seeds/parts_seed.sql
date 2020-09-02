@@ -1,60 +1,118 @@
-/* Parts holds all of our parts and all possible specs a part could have as properties. Because of that relative complexity, I'll be putting templates in place for each part type. Be sure to use the appropriate template if adding anything. *
-/*CPU and GPU are primary components. They'll serve as the fixtures of our builds, and while some may repeat, GPU+CPU will be unique for each.
-/*CPU
-CPU ID is a unique ID that is used - in conjunction with GPU ID - to link to each build.
-
-INSERT INTO PARTS (cpu_id, price, price_tier, image_url, description, make, model, clock_speed, cores)
-VALUES ();
-*/
-
-INSERT INTO PARTS (cpu_id, price, price_tier, image_url, part_description, cpu_make, cpu_model, generation, clock_speed, cores)
-VALUES (4, 169, 'bronze', '/db/assets/ryzen5_1600.jpg', 'Intel may leave AMD in the dust with mid- and high-tier CPUs, but their Ryzen 5 series is ideal for gamers looking to get good bang for the buck.', 'Ryzen', '1600', '5', 3200, 6);
-VALUES (1, 100, 'bronze', '/db/assets/intelc3.jpeg', 'The Intel i3 is an entry-level core, fine for daily browsing and streaming but not well-equipped for more demanding professional applications.', 'Intel', 'Core i3', '9',3400, 2);
-VALUES (2, 150, 'silver', '/db/assets/intelc3.jpeg', 'The Intel i5 constitutes the most prominent mid-range model Intel offers and is equipped for most creatives and gamers.', 'Intel', 'Core i5', '9', 3800, 4);
-VALUES (3, 250, 'gold', '/db/assets/intelc3.jpeg', 'Unless you need to run some serious calculations, chances are an Intel i7 will suit you just fine. We pack it into all of our high-end professional models.', 'Intel', 'Core i7', '9', 4200, 4);
-
-/*GPU
-INSERT INTO PARTS (gpu_id, price, price_tier, image_url, make, model, base_clock, boost_clock, cuda_cores, mem_bandwidth, gysync, freesync)
-VALUES ();
-*/
-/*RAM
-INSERT INTO PARTS (capacity, price, transfer_rate)
-VALUES ();
-*/
-/*Storage
-INSERT INTO PARTS (capacity, price)
-VALUES ();
-*/
-/*PSU, Cooler
-INSERT INTO PARTS (name, price)
-VALUES ();
-*/
-/*case
-INSERT INTO PARTS (name, image_url)
-VALUES ();
-*/
-
-/*
-INSERT INTO PARTS (cpu_id, price, price_tier, image_url, cpu_make, cpu_model) VALUES (1, 99, 'bronze', 'http://google.com', 'Intel', 'i3');
-INSERT INTO PARTS (cpu_id, price, price_tier, image_url, cpu_make, cpu_model) VALUES (2, 150, 'silver', 'http://google.com', 'Intel', 'i5');
-INSERT INTO PARTS (cpu_id, price, price_tier, image_url, cpu_make, cpu_model) VALUES (3, 250, 'gold', 'http://google.com', 'Intel', 'i7');
-INSERT INTO PARTS (gpu_id, price, price_tier, image_url, gpu_make, gpu_model) VALUES (1, 100, 'bronze', 'http://google.com', 'Radeon', 'RX 5700');
-INSERT INTO PARTS (gpu_id, price, price_tier, image_url, gpu_make, gpu_model) VALUES (2, 200, 'silver', 'http://google.com', 'NVIDIA', 'GeForce RTX');
-INSERT INTO PARTS (gpu_id, price, price_tier, image_url, gpu_make, gpu_model) VALUES (3, 300, 'gold', 'http://google.com', 'NVIDIA', 'GeForce GTX');*/
-
-INSERT INTO PARTS (gpu_id, price, price_tier, image_url, gpu_make, gpu_model, base_clock, boost_clock, cuda_cores, mem_bandwidth, gysync, freesync)
-VALUES (1, 170, 'bronze', 'db/assets/xfx_radeon.jpg', 'AMD Radeon', 'RX 570', '3200 MHz', '3600 MHz', 0, '16384 MB', false, true);
 
 
-INSERT INTO PARTS  (capacity, price, transfer_rate)
-VALUE ('4GB', 20, '2666 MHz');
+INSERT INTO PARTS
+    (cpu_id, price, part_type, price_tier, image_url, part_description, make, model, generation, clock_speed, cores)
+VALUES
+    (1, 140, 'cpu', 'bronze', '/db/assets/intelc3.jpeg', 'The Ryzen 5 3600 is arguably the best value on a CPU under $200.', 'AMD', 'Ryzen 5 3600', '5', 3600, 4);
+INSERT INTO PARTS
+    (cpu_id, price, part_type, price_tier, image_url, part_description, make, model, generation, clock_speed, cores)
+VALUES
+    (2, 220, 'cpu', 'silver', '/db/assets/intelc3.jpeg', 'The latest generation of the i7 represents the higher end of performance and is appropriate for just about anyone.', 'Intel', 'i7 9700K', '9', 3600, 8);
+INSERT INTO PARTS
+    (cpu_id, price, part_type, price_tier, image_url, part_description, make, model, generation, clock_speed, cores)
+VALUES
+    (3, 500, 'cpu', 'gold', '/db/assets/intelc3.jpeg', 'An i9 is most often used for demands that go well beyond gaming. A PC with the latest gen i9 will meet all of your demands for a long time to come.', 'Intel', 'i9 10900K', '10', 3700, 10);
+INSERT INTO PARTS
+    (cpu_id, price, part_type, price_tier, image_url, part_description, make, model, generation, clock_speed, cores)
+VALUES
+    (4, 170, 'cpu', 'bronze', '/db/assets/intelc3.jpeg', 'The i5 can get you up and running for under $170 - a great choice for gamers, streamers, and creators who have a tight budget or are still gauging their interest in the field.', 'Intel', 'i5 9400', '9', 2900, 6);
+INSERT INTO PARTS
+    (cpu_id, price, part_type, price_tier, image_url, part_description, make, model, generation, clock_speed, cores)
+VALUES
+    (5, 300, 'cpu', 'silver', '/db/assets/intelc3.jpeg', 'Not every i5 is built the same. The 10600K draws on the latest generation evolutions to create a reliable powerhouse especially competent at multitasking.', 'Intel', 'i5 10600K', '10', 4100, 6);
 
-INSERT INTO PARTS (capacity, price)
-VALUES ('256 GB', 40);
+INSERT INTO PARTS
+    (gpu_id, price, part_type, price_tier, image_url, part_description, make, model, boost_clock, memory, gsync, freesync)
+VALUES
+    (1, 220, 'gpu', 'bronze', 'db/assets/xfx_radeon.jpg', 'Placeholder part description - GTX 1660 Ti', 'NVIDIA', 'GeForce GTX 1660 Ti', 1770, '6 GB GDDR6', true, false);
+INSERT INTO PARTS
+    (gpu_id, price, part_type, price_tier, image_url, part_description, make, model, boost_clock, memory, gsync, freesync)
+VALUES
+    (2, 350, 'gpu', 'silver', 'db/assets/xfx_radeon.jpg', 'Placeholder part description - RTX 2060', 'NVIDIA', 'GeForce RTX 2060', 1680, '6 GB GDDR6', true, false);
+INSERT INTO PARTS
+    (gpu_id, price, part_type, price_tier, image_url, part_description, make, model, boost_clock, memory, gsync, freesync)
+VALUES
+    (3, 600, 'gpu', 'gold', 'db/assets/xfx_radeon.jpg', 'Placeholder part description - 2080 Super', 'NVIDIA', 'GeForce RTX 2080 Super', 1815, '6 GB GDDR6', true, false);
+INSERT INTO PARTS
+    (gpu_id, price, part_type, price_tier, image_url, part_description, make, model, boost_clock, memory, gsync, freesync)
+VALUES
+    (4, 140, 'gpu', 'bronze', 'db/assets/xfx_radeon.jpg', 'Placeholder part description - RX 570', 'NVIDIA', 'GeForce RX 570', 1168, '8 GB GDDR5', true, false);
+INSERT INTO PARTS
+    (gpu_id, price, part_type, price_tier, image_url, part_description, make, model, boost_clock, memory, gsync, freesync)
+VALUES
+    (5, 350, 'gpu', 'silver', 'db/assets/xfx_radeon.jpg', 'Placeholder part description - RTX 2070 Super', 'NVIDIA', 'GeForce RTX 2070 Super', 1605, '8 GB GDDR6', true, false);
 
-INSERT INTO PARTS (part_name, price_tier, price)
-VALUES ('default cooler', 'bronze', 50);
+INSERT INTO PARTS
+    (ram_id, make, part_type, model, capacity, price, price_tier, transfer_rate)
+VALUES
+    (1, 'Corsair', 'ram', 'Vengeance', '4GB', 20, 'bronze', 2666);
+INSERT INTO PARTS
+    (ram_id, make, part_type, model, capacity, price, price_tier, transfer_rate)
+VALUES
+    (2, 'Kingston', 'ram', 'HyperX Fury', '8GB', 40, 'bronze', 2666);
+INSERT INTO PARTS
+    (ram_id, make, part_type, model, capacity, price, price_tier, transfer_rate)
+VALUES
+    (3, 'Kingston', 'ram', 'HyperX Predator', '16GB', 60, 'silver', 2666);
+INSERT INTO PARTS
+    (ram_id, make, part_type, model, capacity, price, price_tier, transfer_rate)
+VALUES
+    (4, 'G.', 'ram', 'Skill Trident', '32GB', 120, 'gold', 2666);
 
-INSERT INTO PARTS (part_name, price_tier, price)
-VALUES ('default psu', 'bronze', 50);
+INSERT INTO PARTS
+    (ssd_id, make, part_type, capacity, price)
+VALUES
+    (1, 'PNY', 'storage', '240 GB', 30);
+INSERT INTO PARTS
+    (ssd_id, make, part_type, capacity, price)
+VALUES
+    (2, 'SanDisk', 'storage', '512 GB', 65);
+INSERT INTO PARTS
+    (ssd_id, make, part_type, capacity, price)
+VALUES
+    (3, 'Western Digital', 'storage', '1 TB', 150);
+INSERT INTO PARTS
+    (ssd_id, make, part_type, capacity, price)
+VALUES
+    (4, 'SanDisk', 'storage', '2 TB', 180);
 
+INSERT INTO PARTS
+    (model, price_tier, price, part_type)
+VALUES
+    ('Cooler Master Hyper 212 Evo', 'bronze', 35, 'cooling');
+INSERT INTO PARTS
+    (model, price_tier, price, part_type)
+VALUES
+
+    ('Corsarir H100i PRO', 'silver', 120, 'cooling');
+
+INSERT INTO PARTS
+    (model, price_tier, price, part_type)
+VALUES
+    ('Corsair H100i PRO', 'gold', 120, 'cooling');
+
+INSERT INTO PARTS
+    (model, price_tier, price, part_type)
+VALUES
+    ('MSI Z390', 'bronze', 130, 'motherboard');
+INSERT INTO PARTS
+    (model, price_tier, price, part_type)
+VALUES
+    ('ASUS Prime X570-P', 'silver', 170, 'motherboard');
+INSERT INTO PARTS
+    (model, price_tier, price, part_type)
+VALUES
+    ('MSI MPG X570', 'gold', 200, 'motherboard');
+
+INSERT INTO PARTS
+    (model, price_tier, voltage, price, part_type)
+VALUES
+    ('EVGA SuperNova G3', 'bronze', 550, 100, 'psu');
+INSERT INTO PARTS
+    (model, price_tier, voltage, price, part_type)
+VALUES
+    ('EVGA SuperNova G2', 'silver', 650, 130, 'psu');
+INSERT INTO PARTS
+    (model, price_tier, voltage, price, part_type)
+VALUES
+    ('EVGA SuperNova G2', 'gold', 650, 130, 'psu');

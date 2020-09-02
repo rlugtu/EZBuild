@@ -5,8 +5,8 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
 const buildRoutes = require('./routes/build-routes');
-const authRouter=require('./routes/auth-routes');
-
+const authRouter = require('./routes/auth-routes');
+const partRoutes = require('./routes/part-routes')
 const app = express();
 require('dotenv').config();
 
@@ -36,9 +36,9 @@ app.get('/', (req, res) => {
   res.send('Goodbye Cruel World!');
 });
 
-app.use('/builds', buildRoutes)
-
-app.use('/api/auth',authRouter)
+app.use('/api/builds', buildRoutes)
+app.use('/api/parts', partRoutes)
+app.use('/api/auth', authRouter)
 
 app.use('*', (req, res) => {
   res.status(400).json({

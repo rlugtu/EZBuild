@@ -11,8 +11,11 @@ const Header = (props) => {
                 <li><Link to="/builds/streaming">Streamers</Link></li>
                 <li><Link to="/builds/creators">Creators</Link></li>
             </ul>
-            <ul>
+            <ul className="navRight">
                 <li><Link to="/user">MyBuild</Link></li>
+                <li><Link to='/user/login'>Login</Link></li>
+                <li><Link to='/user/register'>Register</Link></li>
+                <li onClick={props.logout}>Logout</li>
             </ul>
         </nav>
 

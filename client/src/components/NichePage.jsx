@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Redirect, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 class NichePage extends Component {
     constructor(props) {
@@ -13,7 +13,7 @@ class NichePage extends Component {
     }
 
     getAllBuilds = () => {
-        fetch(`/builds/${this.state.currentPage}`, { credentials: 'include' })
+        fetch(`/api/builds/${this.state.currentPage}`, { credentials: 'include' })
             .then(res => res.json())
             .then(res => {
                 this.setState({
