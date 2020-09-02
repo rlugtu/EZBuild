@@ -65,14 +65,17 @@ VALUES
     (1, '256 GB', 50);
 
 INSERT INTO PARTS
+    (ssd_id, capacity, price)
 VALUES
     (2, '512 GB', 75);
 
 INSERT INTO PARTS
+    (ssd_id, capacity, price)
 VALUES
     (3, '1 TB', 100);
 
 INSERT INTO PARTS
+    (ssd_id, capacity, price)
 VALUES
     (4, '2 TB', 150);
 
