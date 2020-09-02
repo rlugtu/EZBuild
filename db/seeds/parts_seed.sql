@@ -43,7 +43,7 @@ VALUES (4, 'SanDisk', '2 TB', 180);
 INSERT INTO PARTS (model, price_tier, price)
 VALUES ('Cooler Master Hyper 212 Evo', 'bronze', 35);
 INSERT INTO PARTS (model, price_tier, price)
-VALUES ('Corsarir H100i PRO', 'silver', 120);
+VALUES ('Corsair H100i PRO', 'silver', 120);
 INSERT INTO PARTS (model, price_tier, price)
 VALUES ('Corsair H100i PRO', 'gold', 120);
 
