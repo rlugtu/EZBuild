@@ -12,16 +12,19 @@ nav {
   font-size: 1.2rem;
   color: rgba(242, 241, 239, 1);
 }
-.navLeft {
+.navLeft, .navRight {
   display: flex;
   justify-content: space-between;
   width: 500px;
   padding: 0;
 }
+
 ul {
   list-style-type: none;
 }
-
+li {
+  cursor: pointer
+}
 a {
   color: rgba(242, 241, 239, 1);
   text-decoration: none;
