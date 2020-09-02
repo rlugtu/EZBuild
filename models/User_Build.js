@@ -2,12 +2,12 @@ const db = require('../db/config')
 
 class UserBuild {
     constructor({ id, make, model, part_type, price, user_id }) {
-        this.id = id || null
-        this.make = make
-        this.model = model
-        this.part_type = part_type
-        this.price = price
-        this.user_id = user_id
+        this.id = id || null;
+        this.make = make;
+        this.model = model;
+        this.part_type = part_type;
+        this.price = price;
+        this.user_id = user_id;
     }
     static getAllBuilds = () => {
         return db

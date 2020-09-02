@@ -28,7 +28,7 @@ userBuildController.create = (req, res, next) => {
         model: req.body.model,
         part_type: req.body.part_type,
         price: req.body.price,
-        user_id: req.user_id
+        user_id: req.body.user_id
     })
         .save()
         .then((parts) => {
@@ -48,6 +48,12 @@ userBuildController.update = (req, res, next) => {
                 model: req.body.model,
                 part_type: req.body.part_type,
                 price: req.body.price,
+            })
+        })
+        .then((user_build) => {
+            res.json({
+                message: 'Build Updated',
+                user_build: user_build
             })
         })
         .catch(next)
