@@ -36,7 +36,8 @@ class ProductInfoPage extends Component {
                     </div> */}
                 <div className="infoContent">
                     <p>{this.props.allParts[this.state.selectedPart].part_description}</p>
-                    {this.props.allParts[this.state.selectedPart].generation && <p>Generation: {this.props.allParts[this.state.selectedPart].generation}</p>}
+                    {this.props.allParts[this.state.selectedPart].generation &&
+                        <p>Generation: {this.props.allParts[this.state.selectedPart].generation}</p>}
                     {this.props.allParts[this.state.selectedPart].cores && <p>Cores: {this.props.allParts[this.state.selectedPart].cores}</p>}
 
                     {this.props.allParts[this.state.selectedPart].image_url && <img src={this.props.allParts[this.state.selectedPart].image_url} />}
