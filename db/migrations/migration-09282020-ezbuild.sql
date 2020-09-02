@@ -50,5 +50,17 @@ IF NOT EXISTS builds
     cpu_id INTEGER NOT NULL,
     gpu_id INTEGER NOT NULL,
     ram_id INTEGER NOT NULL,
-    ssd_ID INTEGER NOT NULL
+    ssd_id INTEGER NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS user_builds
+(
+    id SERIAL PRIMARY KEY,
+    price_tier VARCHAR (255),
+    cpu_id INTEGER NOT NULL,
+    gpu_id INTEGER NOT NULL,
+    ram_id INTEGER NOT NULL,
+    ssd_id INTEGER NOT NULL,
+    FOREIGN KEY(id)
+    REFERENCES users(id)
 );
