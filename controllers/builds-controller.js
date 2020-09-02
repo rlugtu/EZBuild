@@ -93,10 +93,10 @@ buildController.getCreators = (req, res, next) => {
 
 buildController.getCreatorsBronze = (req, res, next) => {
     Build.getCreatorsBronze()
-        .then((build) => {
+        .then((parts) => {
             res.json({
                 message: 'ok',
-                build
+                parts
             })
         })
         .catch(next)
@@ -104,10 +104,10 @@ buildController.getCreatorsBronze = (req, res, next) => {
 
 buildController.getCreatorsSilver = (req, res, next) => {
     Build.getCreatorsSilver()
-        .then((build) => {
+        .then((parts) => {
             res.json({
                 message: 'ok',
-                build
+                parts
             })
         })
         .catch(next)
@@ -115,10 +115,10 @@ buildController.getCreatorsSilver = (req, res, next) => {
 
 buildController.getCreatorsGold = (req, res, next) => {
     Build.getCreatorsGold()
-        .then((build) => {
+        .then((parts) => {
             res.json({
                 message: 'ok',
-                build
+                parts
             })
         })
         .catch(next)
