@@ -13,7 +13,7 @@ class NichePage extends Component {
     }
 
     getAllBuilds = () => {
-        fetch(`/builds/${this.state.currentPage}`, { credentials: 'include' })
+        fetch(`/api/builds/${this.state.currentPage}`, { credentials: 'include' })
             .then(res => res.json())
             .then(res => {
                 this.setState({

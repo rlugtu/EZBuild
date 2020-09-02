@@ -15,7 +15,7 @@ class ProductPage extends Component {
         }
     }
     getAllParts = () => {
-        fetch(`/builds/${this.props.selectedNiche}/${this.props.currentId}`, { credentials: 'include' })
+        fetch(`/api/builds/${this.props.selectedNiche}/${this.props.currentId}`, { credentials: 'include' })
             .then(res => res.json())
             .then(res => {
                 this.setState({
