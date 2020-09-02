@@ -4,6 +4,7 @@ const buildRoutes = express.Router()
 const buildController = require('../controllers/builds-controller'
 )
 
+// Clean this up with double parameters possibly
 buildRoutes.get('/gaming', buildController.getGaming)
 buildRoutes.get('/gaming/bronze', buildController.getGamingBronzeParts)
 buildRoutes.get('/gaming/silver', buildController.getGamingSilverParts)
