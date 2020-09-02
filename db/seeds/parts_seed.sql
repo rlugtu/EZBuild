@@ -83,7 +83,9 @@ VALUES
 INSERT INTO PARTS
     (model, price_tier, price, part_type)
 VALUES
+
     ('Corsarir H100i PRO', 'silver', 120, 'cooling');
+
 INSERT INTO PARTS
     (model, price_tier, price, part_type)
 VALUES
