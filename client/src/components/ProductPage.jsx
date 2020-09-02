@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import ProductInfoPage from './ProductInfoPage'
+import { Link } from 'react-router-dom'
+
 
 class ProductPage extends Component {
     constructor(props) {
@@ -11,7 +13,10 @@ class ProductPage extends Component {
             dataLoaded: false,
             showInfo: false,
             selectedPart: null,
-            totalCost: 0
+            ramPrice: null,
+            ramCapacity: null,
+            storagePrice: null,
+            storageCapacity: null
         }
     }
     getAllParts = () => {
@@ -20,13 +25,22 @@ class ProductPage extends Component {
             .then(res => {
                 this.setState({
                     allParts: res.parts,
-                    dataLoaded: true
+                    dataLoaded: true,
+                    ramPrice: res.parts[2].price,
+                    ramCapacity: res.parts[2].capacity,
+                    // storagePrice: res.parts[3].price,
+                    // storageCapacity: res.parts[3].capacity,
+                    // chosenParts: {
+                    //     cpu: `${res.parts[0].make} ${res.parts[0].model} ${res.parts[0].price}`,
+                    //     gpu: `${res.parts[1].make} ${res.parts[1].model} ${res.parts[1].price}`,
+                    //     ram: `${res.parts[2].make} ${res.parts[2].model} ${res.parts[2].capacity} ${res.parts[2].price}`,
+                    //     storage: `${res.parts[3].make} ${res.parts[3].capacity} ${res.parts[3].price}`,
+                    // }
                 })
             }).catch(err => console.log(err))
     }
     componentDidMount() {
         this.getAllParts()
-        this.getTotalCost()
     }
 
     //SHOW INFO BASED ON PART THAT IS CLICKED
@@ -41,21 +55,7 @@ class ProductPage extends Component {
         })
     }
 
-
-    getTotalCost = () => {
-        let total = 0
-        if (this.state.dataLoaded) {
-            this.state.allParts.map((part) => {
-                console.log('hi')
-                total += part.price
-                return total
-            })
-            this.setState({
-                totalCost: total
-            })
-        }
-        return
-    }
+    //maybe add onclick so price updates based on option chosen
 
 
     render() {
@@ -67,8 +67,40 @@ class ProductPage extends Component {
                         <div className="productContent">
                             {this.state.allParts.map((part, i) =>
                                 <div className="productInput" key={i}>
-                                    <p onClick={() => { this.toggleShowInfo(); this.setSelectedPart(i) }}>{part.make} {part.model} ${part.price} </p>
+                                    <p onClick={() => { this.toggleShowInfo(); this.setSelectedPart(i) }}>{part.make} {part.model} </p>
+                                    <p>${part.price}</p>
                                 </div>)}
+                            <form className="userOptions">
+                                <div className="adjustableOptions">
+                                    <div className="dropdownMenu">
+                                        <label htmlFor="ram">RAM</label>
+                                        <select id="ram" name="ram">
+                                            <option value={this.state.ram}>{this.state.ramCapacity}</option>
+                                            {/* should be ram upgrade states*/}
+                                            <option>16GB</option>
+                                        </select>
+                                    </div>
+                                    <p>${this.state.ramPrice}</p>
+                                </div>
+
+                                <div className="adjustableOptions">
+                                    <div className="dropdownMenu">
+                                        <label htmlFor="storage">Storage</label>
+                                        <select id="storage" name="storage">
+                                            <option>{this.state.storageCapacity}</option>
+                                            {/* should be storage upgrade states */}
+                                            <option>512GB</option>
+                                            <option>1TBGB</option>
+                                            <option>2TBGB</option>
+                                        </select>
+                                    </div>
+                                    <p>${this.state.storagePrice}</p>
+                                </div>
+                            </form>
+                            <div className="saveButtonDiv">
+                                <button className="saveButton"><Link to="/user">Save Build</Link></button>
+                            </div>
+
                         </div>
                         : null}
 
@@ -76,8 +108,8 @@ class ProductPage extends Component {
                         <ProductInfoPage allParts={this.state.allParts} toggleShowInfo={this.toggleShowInfo} selectedPart={this.state.selectedPart} />
                         : null}
                 </div>
-            </div>
 
+            </div>
         )
     }
 }

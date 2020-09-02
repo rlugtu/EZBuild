@@ -9,28 +9,7 @@ class BuildsController extends Component {
         super(props)
         this.state = {
             currentPage: props.currentPage,
-            allBuilds: [
-                {
-                    name: 'build 1',
-                    tier: 'bronze',
-                    cpu: 'test cpu 1',
-                    gpu: 'test gpu 1',
-                    ram: 'test ram 1'
-                },
-                {
-                    name: 'build 2',
-                    tier: 'silver',
-                    cpu: 'test cpu 2',
-                    gpu: 'test gpu 2',
-                    ram: 'test ram 2'
-                },
-                {
-                    name: 'build 3',
-                    tier: 'gold',
-                    cpu: 'test cpu 3',
-                    gpu: 'test gpu 3',
-                    ram: 'test ram 3'
-                }],
+            allBuilds: [],
             selectedBuild: props.selectedBuild,
             currentId: props.currentId,
             selectedNiche: props.selectedNiche,
