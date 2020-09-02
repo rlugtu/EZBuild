@@ -1,5 +1,3 @@
-/*Contains the basic information for each user. Will also be used to link a build to a user before purchase*/
-
 CREATE TABLE
 IF NOT EXISTS users
 (
