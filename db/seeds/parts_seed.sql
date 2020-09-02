@@ -22,7 +22,7 @@ VALUES
     (5, 300, 'cpu', 'silver', '/db/assets/intelc3.jpeg', 'Not every i5 is built the same. The 10600K draws on the latest generation evolutions to create a reliable powerhouse especially competent at multitasking.', 'Intel', 'i5 10600K', '10', 4100, 6);
 
 INSERT INTO PARTS
-    (gpu_id, price, part_type, part_type, price_tier, image_url, part_description, make, model, boost_clock, memory, gsync, freesync)
+    (gpu_id, price, part_type, price_tier, image_url, part_description, make, model, boost_clock, memory, gsync, freesync)
 VALUES
     (1, 220, 'gpu', 'bronze', 'db/assets/xfx_radeon.jpg', 'Placeholder part description - GTX 1660 Ti', 'NVIDIA', 'GeForce GTX 1660 Ti', 1770, '6 GB GDDR6', true, false);
 INSERT INTO PARTS
