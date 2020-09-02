@@ -24,11 +24,11 @@ VALUES (5, 350, 'silver', 'db/assets/xfx_radeon.jpg', 'Placeholder part descript
 
 INSERT INTO PARTS  (ram_id, make, model, capacity, price, price_tier, transfer_rate)
 VALUES (1, 'Corsair', 'Vengeance', '4GB', 20, 'bronze', 2666);
-INSERT INTO PARTS  (ram_id, capacity, price, price_tier, transfer_rate)
+INSERT INTO PARTS  (ram_id, make, model, capacity, price, price_tier, transfer_rate)
 VALUES (2, 'Kingston', 'HyperX Fury', '8GB', 40, 'bronze', 2666);
-INSERT INTO PARTS  (ram_id, capacity, price, price_tier, transfer_rate)
+INSERT INTO PARTS  (ram_id, make, model, capacity, price, price_tier, transfer_rate)
 VALUES (3, 'Kingston', 'HyperX Predator', '16GB', 60, 'silver', 2666);
-INSERT INTO PARTS  (ram_id, capacity, price, price_tier, transfer_rate)
+INSERT INTO PARTS  (ram_id, make, model, capacity, price, price_tier, transfer_rate)
 VALUES (4, 'G.', 'Skill Trident', '32GB', 120, 'gold', 2666);
 
 INSERT INTO PARTS (ssd_id, make, capacity, price)
@@ -37,13 +37,13 @@ INSERT INTO PARTS (ssd_id, make, capacity, price)
 VALUES (2, 'SanDisk' '512 GB', 65);
 INSERT INTO PARTS (ssd_id, make, capacity, price)
 VALUES (3, 'Western Digital', '1 TB', 150);
-INSERT INTO PARTS (ssd_id, capacity, price)
+INSERT INTO PARTS (ssd_id, make, capacity, price)
 VALUES (4, 'SanDisk', '2 TB', 180);
 
 INSERT INTO PARTS (model, price_tier, price)
 VALUES ('Cooler Master Hyper 212 Evo', 'bronze', 35);
 INSERT INTO PARTS (model, price_tier, price)
-VALUES ('Corsair H100i PRO', 'silver', 120);
+VALUES ('Corsarir H100i PRO', 'silver', 120);
 INSERT INTO PARTS (model, price_tier, price)
 VALUES ('Corsair H100i PRO', 'gold', 120);
 
@@ -56,7 +56,7 @@ VALUES ('MSI MPG X570', 'gold', 200);
 
 INSERT INTO PARTS (model, price_tier, voltage, price)
 VALUES ('EVGA SuperNova G3', 'bronze', 550, 100);
-INSERT INTO PARTS (model, price_tier, price)
+INSERT INTO PARTS (model, price_tier, voltage, price)
 VALUES ('EVGA SuperNova G2', 'silver', 650, 130);
-INSERT INTO PARTS (model, price_tier, price)
+INSERT INTO PARTS (model, price_tier, voltage, price)
 VALUES ('EVGA SuperNova G2', 'gold', 650, 130);
