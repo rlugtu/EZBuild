@@ -10,16 +10,22 @@ Build.getGaming = () => {
 }
 Build.getGamingBronze = () => {
     return db.query(`
-    SELECT builds.build_name, parts.model, parts.make FROM builds INNER JOIN parts on builds.gpu_id=parts.gpu_id AND builds.price_tier='bronze' AND builds.build_type='gaming';`)
+    SELECT * FROM parts
+    INNER JOIN builds ON (builds.ram_id=parts.ram_id OR builds.cpu_id=parts.cpu_id OR builds.gpu_id=parts.gpu_id OR builds.ssd_id=parts.ssd_id)
+    AND builds.build_name='gato';`)
 
 }
 Build.getGamingSilver = () => {
     return db.query(`
-    SELECT builds.build_name, parts.model, parts.make FROM builds INNER JOIN parts on builds.gpu_id=parts.gpu_id AND builds.price_tier='silver' AND builds.build_type='gaming';`)
+    SELECT * FROM parts
+    INNER JOIN builds ON (builds.ram_id=parts.ram_id OR builds.cpu_id=parts.cpu_id OR builds.gpu_id=parts.gpu_id OR builds.ssd_id=parts.ssd_id)
+    AND builds.build_name='tigre';`)
 }
 Build.getGamingGold = () => {
     return db.query(`
-    SELECT builds.build_name, parts.model, parts.make FROM builds INNER JOIN parts on builds.gpu_id=parts.gpu_id AND builds.price_tier='gold' AND builds.build_type='gaming';`)
+    SELECT * FROM parts
+    INNER JOIN builds ON (builds.ram_id=parts.ram_id OR builds.cpu_id=parts.cpu_id OR builds.gpu_id=parts.gpu_id OR builds.ssd_id=parts.ssd_id)
+    AND builds.build_name='jaguar';`)
 }
 
 Build.getStreaming = () => {
@@ -31,17 +37,23 @@ Build.getStreaming = () => {
 
 Build.getStreamingBronze = () => {
     return db.query(`
-    SELECT builds.build_name, parts.model, parts.make FROM builds INNER JOIN parts on builds.gpu_id=parts.gpu_id AND builds.price_tier='bronze' AND builds.build_type='streaming';`)
+    SELECT * FROM parts
+    INNER JOIN builds ON (builds.ram_id=parts.ram_id OR builds.cpu_id=parts.cpu_id OR builds.gpu_id=parts.gpu_id OR builds.ssd_id=parts.ssd_id)
+    AND builds.build_name='pinguine';`)
 }
 
 Build.getStreamingSilver = () => {
     return db.query(`
-    SELECT builds.build_name, parts.model, parts.make FROM builds INNER JOIN parts on builds.gpu_id=parts.gpu_id AND builds.price_tier='silver' AND builds.build_type='streaming';`)
+    SELECT * FROM parts
+    INNER JOIN builds ON (builds.ram_id=parts.ram_id OR builds.cpu_id=parts.cpu_id OR builds.gpu_id=parts.gpu_id OR builds.ssd_id=parts.ssd_id)
+    AND builds.build_name='delfin';`)
 }
 
 Build.getStreamingGold = () => {
     return db.query(`
-    SELECT builds.build_name, parts.model, parts.make FROM builds INNER JOIN parts on builds.gpu_id=parts.gpu_id AND builds.price_tier='gold' AND builds.build_type='streaming';`)
+    SELECT * FROM parts
+    INNER JOIN builds ON (builds.ram_id=parts.ram_id OR builds.cpu_id=parts.cpu_id OR builds.gpu_id=parts.gpu_id OR builds.ssd_id=parts.ssd_id)
+    AND builds.build_name='tiburon';`)
 }
 
 
@@ -54,17 +66,23 @@ Build.getCreators = () => {
 }
 Build.getCreatorsBronze = () => {
     return db.query(`
-    SELECT builds.build_name, parts.model, parts.make FROM builds INNER JOIN parts on builds.gpu_id=parts.gpu_id AND builds.price_tier='bronze' AND builds.build_type='creators';`)
+    SELECT * FROM parts
+    INNER JOIN builds ON (builds.ram_id=parts.ram_id OR builds.cpu_id=parts.cpu_id OR builds.gpu_id=parts.gpu_id OR builds.ssd_id=parts.ssd_id)
+    AND builds.build_name='cierva';`)
 }
 
 Build.getCreatorsSilver = () => {
     return db.query(`
-    SELECT builds.build_name, parts.model, parts.make FROM builds INNER JOIN parts on builds.gpu_id=parts.gpu_id AND builds.price_tier='silver' AND builds.build_type='creators';`)
+    SELECT * FROM parts
+    INNER JOIN builds ON (builds.ram_id=parts.ram_id OR builds.cpu_id=parts.cpu_id OR builds.gpu_id=parts.gpu_id OR builds.ssd_id=parts.ssd_id)
+    AND builds.build_name='jirafa';`)
 }
 
 Build.getCreatorsGold = () => {
     return db.query(`
-    SELECT builds.build_name, parts.model, parts.make FROM builds INNER JOIN parts on builds.gpu_id=parts.gpu_id AND builds.price_tier='gold' AND builds.build_type='creators';`)
+    SELECT * FROM parts
+    INNER JOIN builds ON (builds.ram_id=parts.ram_id OR builds.cpu_id=parts.cpu_id OR builds.gpu_id=parts.gpu_id OR builds.ssd_id=parts.ssd_id)
+    AND builds.build_name='elefante';`)
 }
 
 

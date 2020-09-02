@@ -5,7 +5,15 @@
     FROM builds
     INNER JOIN parts ON builds.cpu_id=parts.cpu_id AND builds.build_type='gaming';
 
-// Get all streaming builds and display CPU/GPU
+SELECT parts.capacity, parts.ram_id, builds.build_name
+FROM builds
+INNER JOIN parts on builds.ram_id = parts.ram_id;
+    // Get all streaming builds and display CPU/GPU
+SELECT parts.make, parts.model, parts.ram_id, parts.capacity, builds.build_name
+FROM builds
+INNER JOIN parts ON builds.cpu_id=parts.cpu_id AND builds.gpu_id=parts.gpu_id AND builds.build_name='gato';
+
+
 SELECT parts.make, parts.model, builds.build_name
 FROM builds
 INNER JOIN parts ON builds.cpu_id=parts.cpu_id AND builds.gpu_id=parts.gpu_id AND builds.build_type='streaming';

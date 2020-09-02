@@ -9,7 +9,7 @@ nav {
   align-items: center;
   padding: 0 5%;
   background-color: rgba(51, 92, 103,1);
-  font-size: 1.2em;
+  font-size: 1.2rem;
   color: rgba(242, 241, 239, 1);
 }
 .navLeft {
@@ -114,4 +114,42 @@ height: 100%;
   margin: 20px;
   padding: 20px;
   cursor: pointer;
+}
+
+.productBody{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+  height: 100vh;
+}
+.productContainer {
+  display: flex;
+  width: 80%;
+  margin: 0 20%;
+  font-size: 2rem;
+}
+.productContent {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 20px;
+  background-color: darkgrey;
+  color: black;
+  width: 500px;
+}
+
+
+.productInput , p {
+  margin: 0;
+}
+
+.infoContainer {
+  display: flex;
+  width: 50%;
+  margin-left: 400px;
+  flex-direction: column;
+  align-content: flex-end;
+
 }
