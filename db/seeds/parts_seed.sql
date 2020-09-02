@@ -76,6 +76,11 @@ INSERT INTO PARTS
 VALUES
     (4, 'SanDisk', 'storage', '2 TB', 180);
 
+INSERT INTO user_builds
+(price_tier, cpu_id, gpu_id, ram_id, ssd_id)
+VALUES
+('bronze', 1, 2, 3, 4);
+
 INSERT INTO PARTS
     (model, price_tier, price, part_type)
 VALUES
