@@ -25,19 +25,6 @@ class ProductPage extends Component {
             .then(res => {
                 this.setState({
                     allParts: res.parts,
-                    // ramPrice: res.parts[2].price,
-                    // ramCapacity: res.parts[2].capacity,
-                    // storagePrice: res.parts[3].price,
-                    // storageCapacity: res.parts[3].capacity,
-                    // chosenParts: {
-                    //     cpu: `${res.parts[0].make} ${res.parts[0].model} ${res.parts[0].price}`,
-                    //     gpu: `${res.parts[1].make} ${res.parts[1].model} ${res.parts[1].price}`,
-                    //     ram: `${res.parts[2].make} ${res.parts[2].model} ${res.parts[2].capacity} ${res.parts[2].price}`,
-                    //     storage: `${res.parts[3].make} ${res.parts[3].capacity} ${res.parts[3].price}`,
-                    // },
-                    // allRam: res.part,
-                    // motherboard: res.part,
-                    // cooling: res.part,
                     dataLoaded: true,
                 })
             }).catch(err => console.log(err))
