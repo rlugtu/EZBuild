@@ -35,7 +35,8 @@ IF NOT EXISTS parts
     ram_id INTEGER,
     transfer_rate INTEGER,
     /*Unique to hard drive*/
-    ssd_id INTEGER
+    ssd_id INTEGER,
+    voltage INTEGER
 );
 
 CREATE TABLE
