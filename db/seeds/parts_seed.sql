@@ -83,7 +83,7 @@ VALUES
 INSERT INTO PARTS
     (model, price_tier, price)
 VALUES
-    ('Corsarir H100i PRO', 'silver', 120);
+    ('Corsair H100i PRO', 'silver', 120);
 INSERT INTO PARTS
     (model, price_tier, price)
 VALUES
