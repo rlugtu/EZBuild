@@ -88,4 +88,44 @@ partController.getGoldMotherboard = (req, res, next) => {
         })
 }
 
+partController.getBronzePSU = (req, res, next) => {
+    Part.getBronzePSU()
+        .then((part) => {
+            res.json({
+                message: 'ok',
+                part
+            })
+        })
+}
+
+partController.getSilverPSU = (req, res, next) => {
+    Part.getSilverPSU()
+        .then((part) => {
+            res.json({
+                message: 'ok',
+                part
+            })
+        })
+}
+partController.getGoldPSU = (req, res, next) => {
+    Part.getGoldPSU()
+        .then((part) => {
+            res.json({
+                message: 'ok',
+                part
+            })
+        })
+}
+
+partController.getAllStorage = (req, res, next) => {
+    Part.getAllStorage()
+        .then((part) => {
+            res.json({
+                message: 'ok',
+                part
+            })
+        })
+}
+
+
 module.exports = partController

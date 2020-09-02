@@ -17,6 +17,10 @@ partRoutes.get('/motherboard/bronze', partController.getBronzeMotherboard)
 partRoutes.get('/motherboard/silver', partController.getSilverMotherboard)
 partRoutes.get('/motherboard/gold', partController.getGoldMotherboard)
 
+partRoutes.get('/psu/bronze', partController.getBronzePSU)
+partRoutes.get('/psu/silver', partController.getSilverPSU)
+partRoutes.get('/psu/gold', partController.getGoldPSU)
 
+partRoutes.get('/storage', partController.getAllStorage)
 
 module.exports = partRoutes

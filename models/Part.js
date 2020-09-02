@@ -36,5 +36,23 @@ Part.getGoldMotherboard = () => {
 }
 
 
-Part.getBronzeMobo
+Part.getBronzeMotherboard = () => {
+    return db.query(`SELECT * FROM parts WHERE parts.price_tier = 'bronze' AND parts.part_type='motherboard';`)
+}
+
+Part.getBronzePSU = () => {
+    return db.query(`SELECT * FROM parts WHERE parts.price_tier = 'bronze' AND parts.part_type='psu'`)
+}
+Part.getSilverPSU = () => {
+    return db.query(`SELECT * FROM parts WHERE parts.price_tier = 'silver' AND parts.part_type='psu'`)
+}
+Part.getGoldPSU = () => {
+    return db.query(`SELECT * FROM parts WHERE parts.price_tier = 'gold' AND parts.part_type='psu'`)
+}
+
+Part.getAllStorage = () => {
+    return db.query(`SELECT * FROM parts WHERE parts.part_type='storage';`)
+}
+
+
 module.exports = Part
