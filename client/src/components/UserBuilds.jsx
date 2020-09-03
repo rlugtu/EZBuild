@@ -18,13 +18,14 @@ class UserBuilds extends Component {
                     allBuilds: res
                 })
             }).catch(err => console.log(err))
+        return
     }
     componentDidMount() {
         this.getAllUserBuilds()
     }
-    componentDidUpdate() {
-        this.getAllUserBuilds()
-    }
+    // componentDidUpdate() {
+    //     this.getAllUserBuilds()
+    // }
 
     deleteBuild = (id) => {
         fetch(`/api/user/${id}`, {
@@ -52,6 +53,7 @@ class UserBuilds extends Component {
                                 <p>{build.ram}</p>
                                 <p>{build.storage}</p>
                                 <p>{build.cooling}</p>
+                                <p>{build.total}</p>
                                 <button onClick={() => this.deleteBuild(build.id)}>Delete Build</button>
                             </div>
                         ) : null}

@@ -11,7 +11,7 @@ class PartsForm extends Component {
             cooling: props.cooling ? props.cooling[0].model : ' ',
             cpu: props.allParts ? props.allParts[1].model : ' ',
             gpu: props.allParts ? props.allParts[0].model : ' ',
-            total: 0
+            total: ''
         }
         this.handleChange = this.handleChange.bind(this);
     }
@@ -22,6 +22,7 @@ class PartsForm extends Component {
         this.setState({
             [name]: value,
         });
+        this.addItemCost(value)
     }
 
     handleFormSubmit(e, data) {
@@ -46,6 +47,28 @@ class PartsForm extends Component {
         }
     }
 
+    componentDidMount() {
+        this.getTotal()
+    }
+
+    // getPartPrice()
+    getTotal = () => {
+        let totalCost = (this.props.allParts ? this.props.allParts[0].price : null) + (this.props.allParts ? this.props.allParts[1].price : null) + (this.props.motherboard ? this.props.motherboard[0].price : null) + (this.props.cooling && this.props.cooling[0].price) + (this.props.psu ? this.props.psu[0].price : null)
+
+        this.setState({
+            total: totalCost
+        })
+        return totalCost
+    }
+
+    addItemCost = (item) => {
+        let currentTotal = this.state.total
+        // item = typeof item !== 'undefined' ? item : 0;
+        // let totalCost = (this.props.allParts ? this.props.allParts[0].price : null) + (this.props.allParts ? this.props.allParts[1].price : null) + (this.props.motherboard ? this.props.motherboard[0].price : null) + (this.props.cooling && this.props.cooling[0].price) + (this.props.psu ? this.props.psu[0].price : null)
+        this.setState({
+            total: currentTotal + parseInt(item)
+        })
+    }
 
     render() {
         return (
@@ -67,29 +90,40 @@ class PartsForm extends Component {
                     {this.props.cooling && <p>$ {this.props.cooling[0].price} {this.props.cooling[0].model}</p>}
 
                     <h1>RAM:</h1>
-                    <select onChange={this.handleChange} name={'ram'} value={this.state.ram}  >
+                    <select onChange={this.handleChange} name={'ram'} value={this.state.ram}    >
                         <option value=' '>Choose Ram</option>
-                        {this.props.allRam && <option value={this.props.allRam[0].model + ' ' + this.props.allRam[0].capacity}>{this.props.allRam[0].capacity}</option>
+                        {this.props.allRam && <option value={this.props.allRam[0].price + ' ' + this.props.allRam[0].model}>{this.props.allRam[0].capacity}</option>
                         }
+                        {this.props.allRam && <option value={this.props.allRam[1].price + ' ' + this.props.allRam[1].model}>{this.props.allRam[1].capacity}</option>
+                        }
+                        {/* {this.props.allRam && <option value={this.props.allRam[0].model + ' ' + this.props.allRam[0].capacity}>{this.props.allRam[0].capacity}</option>
+                        }
+                        {this.props.allRam && <option value={this.props.allRam[1].model + ' ' + this.props.allRam[1].capacity}>{this.props.allRam[1].capacity}</option>
+                        } */}
                     </select>
 
 
                     <h1>Storage:</h1>
                     <select onChange={this.handleChange} name={'storage'} value={this.state.storage}  >
                         <option value=' '>Choose Storage</option>
-                        {this.props.storage && <option value={this.props.storage[0].make + ' ' + this.props.storage[0].capacity}>{this.props.storage[0].capacity}</option>
+                        {this.props.storage && <option value={this.props.storage[0].price + ' ' + this.props.storage[0].make + ' ' + this.props.storage[0].capacity}>{this.props.storage[0].capacity}</option>
                         }
-                        {this.props.storage && <option value={this.props.storage[1].make + ' ' + this.props.storage[1].capacity}>{this.props.storage[1].capacity}</option>
+                        {this.props.storage && <option value={this.props.storage[1].price + ' ' + this.props.storage[1].make + ' ' + this.props.storage[1].capacity}>{this.props.storage[1].capacity}</option>
                         }
-                        {this.props.storage && <option value={this.props.storage[2].make + ' ' + this.props.storage[2].capacity}>{this.props.storage[2].capacity}</option>
+                        {this.props.storage && <option value={this.props.storage[2].price + ' ' + this.props.storage[2].make + ' ' + this.props.storage[2].capacity}>{this.props.storage[2].capacity}</option>
                         }
-                        {this.props.storage && <option value={this.props.storage[3].make + ' ' + this.props.storage[3].capacity}>{this.props.storage[3].capacity}</option>
+                        {this.props.storage && <option value={this.props.storage[3].price + ' ' + this.props.storage[3].make + ' ' + this.props.storage[3].capacity}>{this.props.storage[3].capacity}</option>
                         }
                     </select>
-                    <h1>Total: {this.state.total}</h1>
                     <input type="submit" value={this.props.isAdd ? 'Add it!' : 'Save this Build'} />
                 </form>
-            </div>
+                {/* <h1>Total:
+                        {(this.props.allParts ? this.props.allParts[0].price : null) + (this.props.allParts ? this.props.allParts[1].price : null) + (this.props.motherboard ? this.props.motherboard[0].price : null) + (this.props.cooling && this.props.cooling[0].price) + (this.props.psu ? this.props.psu[0].price : null)}
+                </h1> */}
+                <h1>$ {this.state.total}</h1>
+                <button onClick={this.getTotal}>Calculate</button>
+
+            </div >
 
         )
     }
