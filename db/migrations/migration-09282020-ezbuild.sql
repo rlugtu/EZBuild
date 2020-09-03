@@ -67,11 +67,20 @@ CREATE TABLE
 IF NOT EXISTS user_builds
 (
     id SERIAL PRIMARY KEY,
-    make VARCHAR
+    cpu VARCHAR
 (255),
-    model VARCHAR
+    gpu VARCHAR
 (255),
-    part_type VARCHAR
+    ram VARCHAR
 (255),
-    price INTEGER NOT NULL
-);
+    motherboard VARCHAR
+(255),
+    cooling VARCHAR
+(255),
+    storage VARCHAR
+(255),
+    psu VARCHAR
+(255),
+    desktop_case VARCHAR
+(255)
+    );

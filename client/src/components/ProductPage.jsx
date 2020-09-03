@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ProductInfoPage from './ProductInfoPage'
-import { Link } from 'react-router-dom'
-
+// import { Link } from 'react-router-dom'
+import PartsForm from './PartsForm'
 
 class ProductPage extends Component {
     constructor(props) {
@@ -12,11 +12,19 @@ class ProductPage extends Component {
             allParts: null,
             dataLoaded: false,
             showInfo: false,
-            selectedPart: null,
+            selectedParts: {},
             psu: null,
             motherBoard: null,
             cooling: null,
             storage: null,
+            allRam: null
+            // selectedParts: {
+            //     allParts: null,
+            //     motherBoard: null,
+            //     cooling: null,
+            //     storage: null,
+            //     ram: null,
+            // }
         }
     }
     getAllParts = () => {
@@ -25,7 +33,7 @@ class ProductPage extends Component {
             .then(res => {
                 this.setState({
                     allParts: res.parts,
-                    dataLoaded: true,
+
                 })
             }).catch(err => console.log(err))
     }
@@ -56,6 +64,7 @@ class ProductPage extends Component {
             .then(res => {
                 this.setState({
                     cooling: res.part,
+                    dataLoaded: true,
                 })
             }).catch(err => console.log(err))
     }
@@ -100,27 +109,50 @@ class ProductPage extends Component {
         })
     }
 
+    handleChange(e) {
+        this.setState({
+            value: e.target.value
+
+        });
+    }
+
     //maybe add onclick so price updates based on option chosen
 
 
     render() {
         return (
             <div className="productBody">
-                <h1>{this.state.currentId[0].toUpperCase() + this.state.currentId.slice(1)} Tier</h1>
+                <h1>{this.state.currentId[0].toUpperCase() + this.state.currentId.slice(1)} Tier
+                </h1>
+
                 <div className="productContainer">
                     {this.state.dataLoaded ?
                         <div className="productContent">
-                            <div>
+                            <PartsForm
+                                allParts={this.state.allParts}
+                                psu={this.state.psu}
+                                storage={this.state.storage}
+                                cooling={this.state.cooling}
+                                motherboard={this.state.motherBoard}
+                                allRam={this.state.allRam}
+                            />
+                            {/* <div>
                                 {this.state.allParts.map((part, i) =>
                                     <div className="productInput" key={i}>
                                         <p onClick={() => { this.toggleShowInfo(); this.setSelectedPart(i) }}>{part.make} {part.model} </p>
                                         <p>${part.price}</p>
                                     </div>)}
+                                <form>
+                                    {this.state.allParts.map((part, i) =>
+                                        <select>
+                                            <option>{part.make} {part.make}</option>
+                                        </select>
+                                    )}
+                                    <select>
+                                        {this.state.motherBoard && <option>{this.state.motherBoard[0].model}</option>}
+                                    </select>
+                                </form>
 
-                                <div className="productInput">
-                                    {this.state.motherBoard && <p>Motherboard:{this.state.motherBoard[0].model}</p>}
-                                    {this.state.motherBoard && <p>${this.state.motherBoard[0].price}</p>}
-                                </div>
                                 <div className="productInput">
                                     {this.state.psu && <p>PSU: {this.state.psu[0].model}</p>}
                                     {this.state.psu && <p>${this.state.psu[0].price}</p>}
@@ -129,40 +161,7 @@ class ProductPage extends Component {
                                     {this.state.cooling && <p>Cooling:{this.state.cooling[0].model}</p>}
                                     {this.state.cooling && <p>${this.state.cooling[0].price}</p>}
                                 </div>
-                            </div>
-
-                            <form className="userOptions">
-                                <div className="adjustableOptions">
-                                    <div className="dropdownMenu">
-                                        <label htmlFor="ram">RAM</label>
-                                        <select id="ram" name="ram">
-                                            {this.state.allRam && <option value={this.state.allRam[0].capacity}>{this.state.allRam[0].capacity}</option>}
-                                            {/* should be ram upgrade states*/}
-                                            <option></option>
-                                        </select>
-                                    </div>
-                                    <p>${this.state.allRam && <p>{this.state.allRam[0].price}</p>}</p>
-
-                                </div>
-
-
-                                <div className="adjustableOptions">
-                                    <div className="dropdownMenu">
-                                        <label htmlFor="storage">Storage</label>
-                                        <select id="storage" name="storage">
-                                            {this.state.storage && <option value={this.state.storage[0].capacity}>{this.state.storage[0].capacity}</option>}
-                                            {this.state.storage && <option value={this.state.storage[1].capacity}>{this.state.storage[1].capacity}</option>}
-                                            {this.state.storage && <option value={this.state.storage[2].capacity}>{this.state.storage[2].capacity}</option>}
-                                            {this.state.storage && <option value={this.state.storage[3].capacity}>{this.state.storage[3].capacity}</option>}
-                                        </select>
-                                    </div>
-                                    <p>${this.state.storagePrice}</p>
-                                </div>
-                            </form>
-                            <div className="saveButtonDiv">
-                                <button className="saveButton"><Link to="/user">Save Build</Link></button>
-                            </div>
-
+                            </div> */}
                         </div>
                         : null}
 

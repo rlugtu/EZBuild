@@ -11,6 +11,17 @@ userBuildController.index = (req, res, next) => {
         }).catch(next)
 }
 
+userBuildController.getUserBuildById = (req, res, next) => {
+    UserBuild.getAllBuildsForUser(req.params.id)
+        .then((user_build) => {
+            res.json({
+                message: 'Looking at build!',
+                user_build
+            })
+        })
+        .catch(next)
+}
+
 userBuildController.getBuildById = (req, res, next) => {
     UserBuild.getBuildById(req.params.id)
         .then((user_build) => {
@@ -24,11 +35,15 @@ userBuildController.getBuildById = (req, res, next) => {
 
 userBuildController.create = (req, res, next) => {
     new UserBuild({
-        make: req.body.make,
-        model: req.body.model,
-        part_type: req.body.part_type,
-        price: req.body.price,
-        user_id: req.body.user_id
+        cpu: req.body.cpu,
+        gpu: req.body.gpu,
+        ram: req.body.ram,
+        motherboard: req.body.motherboard,
+        cooling: req.body.cooling,
+        storage: req.body.storage,
+        psu: req.body.psu,
+        desktop_case: req.body.desktop_case,
+        user_id: req.user.id
     })
         .save()
         .then((parts) => {
@@ -44,10 +59,14 @@ userBuildController.update = (req, res, next) => {
     UserBuild.getBuildById(req.params.id)
         .then((user_build) => {
             user_build.update({
-                make: req.body.make,
-                model: req.body.model,
-                part_type: req.body.part_type,
-                price: req.body.price,
+                cpu: req.body.cpu,
+                gpu: req.body.gpu,
+                ram: req.body.ram,
+                motherboard: req.body.motherboard,
+                cooling: req.body.cooling,
+                storage: req.body.storage,
+                psu: req.body.psu,
+                desktop_case: req.body.desktop_case,
             })
         })
         .then((user_build) => {
