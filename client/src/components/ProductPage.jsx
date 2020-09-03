@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import ProductInfoPage from './ProductInfoPage'
 // import { Link } from 'react-router-dom'
 import PartsForm from './PartsForm'
 
@@ -11,20 +10,12 @@ class ProductPage extends Component {
             selectedBuild: props.selectedBuild,
             allParts: null,
             dataLoaded: false,
-            showInfo: false,
             selectedParts: {},
             psu: null,
             motherBoard: null,
             cooling: null,
             storage: null,
             allRam: null
-            // selectedParts: {
-            //     allParts: null,
-            //     motherBoard: null,
-            //     cooling: null,
-            //     storage: null,
-            //     ram: null,
-            // }
         }
     }
     getAllParts = () => {
@@ -98,31 +89,13 @@ class ProductPage extends Component {
     }
 
     //SHOW INFO BASED ON PART THAT IS CLICKED
-    toggleShowInfo = () => {
-        this.setState({
-            showInfo: !this.state.showInfo
-        })
-    }
-    setSelectedPart = (index) => {
-        this.setState({
-            selectedPart: index
-        })
-    }
-
-    handleChange(e) {
-        this.setState({
-            value: e.target.value
-
-        });
-    }
-
-    //maybe add onclick so price updates based on option chosen
 
 
     render() {
         return (
             <div className="productBody">
-                <h1>{this.state.currentId[0].toUpperCase() + this.state.currentId.slice(1)} Tier
+                <h1 className="brandStatement">{this.props.selectedNiche[0].toUpperCase() + this.props.selectedNiche.slice(1)}</h1>
+                <h1> {this.state.currentId[0].toUpperCase() + this.state.currentId.slice(1)} Tier
                 </h1>
 
                 <div className="productContainer">
@@ -137,38 +110,9 @@ class ProductPage extends Component {
                                 allRam={this.state.allRam}
                                 auth={this.props.auth}
                             />
-                            {/* <div>
-                                {this.state.allParts.map((part, i) =>
-                                    <div className="productInput" key={i}>
-                                        <p onClick={() => { this.toggleShowInfo(); this.setSelectedPart(i) }}>{part.make} {part.model} </p>
-                                        <p>${part.price}</p>
-                                    </div>)}
-                                <form>
-                                    {this.state.allParts.map((part, i) =>
-                                        <select>
-                                            <option>{part.make} {part.make}</option>
-                                        </select>
-                                    )}
-                                    <select>
-                                        {this.state.motherBoard && <option>{this.state.motherBoard[0].model}</option>}
-                                    </select>
-                                </form>
-
-                                <div className="productInput">
-                                    {this.state.psu && <p>PSU: {this.state.psu[0].model}</p>}
-                                    {this.state.psu && <p>${this.state.psu[0].price}</p>}
-                                </div>
-                                <div className="productInput">
-                                    {this.state.cooling && <p>Cooling:{this.state.cooling[0].model}</p>}
-                                    {this.state.cooling && <p>${this.state.cooling[0].price}</p>}
-                                </div>
-                            </div> */}
                         </div>
                         : null}
 
-                    {this.state.showInfo ?
-                        <ProductInfoPage allParts={this.state.allParts} toggleShowInfo={this.toggleShowInfo} selectedPart={this.state.selectedPart} />
-                        : null}
                 </div>
 
             </div>
