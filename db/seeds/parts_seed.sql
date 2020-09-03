@@ -60,6 +60,18 @@ VALUES
     (4, 'G.', 'ram', 'Skill Trident', '32GB', 120, 'gold', 2666);
 
 INSERT INTO PARTS
+    (ram_id, make, part_type, model, capacity, price, price_tier, transfer_rate)
+VALUES
+    (5, 'Kingston', 'ram', 'HyperX Fury', '8GB', 40, 'silver', 2666);
+
+INSERT INTO PARTS
+    (ram_id, make, part_type, model, capacity, price, price_tier, transfer_rate)
+VALUES
+    (6, 'Kingston', 'ram', 'HyperX Predator', '16GB', 60, 'gold', 2666);
+
+
+
+INSERT INTO PARTS
     (ssd_id, make, part_type, capacity, price)
 VALUES
     (1, 'PNY', 'storage', '240 GB', 30);
