@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 
 const Header = (props) => {
+
     return (
         <nav>
             <ul className="navLeft">
@@ -13,9 +14,13 @@ const Header = (props) => {
             </ul>
             <ul className="navRight">
                 <li><Link to="/user">MyBuild</Link></li>
-                <li><Link to='/user/login'>Login</Link></li>
-                <li><Link to='/user/register'>Register</Link></li>
-                <li onClick={props.logout}>Logout</li>
+                {props.auth ? <li onClick={props.logout}>Logout</li>
+                    : <div className="loginAndRegister">
+                        <li><Link to='/user/login'>Login</Link></li>
+                        <li><Link to='/user/register'>Register</Link></li>
+                    </div>}
+
+
             </ul>
         </nav>
 

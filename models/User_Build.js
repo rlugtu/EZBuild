@@ -1,18 +1,29 @@
 const db = require('../db/config')
 
 class UserBuild {
-    constructor({ id, make, model, part_type, price, user_id }) {
-        this.id = id || null
-        this.make = make
-        this.model = model
-        this.part_type = part_type
-        this.price = price
+    constructor({ id, cpu, gpu, ram, motherboard, cooling, storage, psu, desktop_case, user_id }) {
+        this.id = id || null;
+        this.cpu = cpu;
+        this.gpu = gpu
+        this.ram = ram;
+        this.motherboard = motherboard;
+        this.cooling = cooling;
+        this.storage = storage;
+        this.psu = psu;
+        this.desktop_case = desktop_case;
         this.user_id = user_id
     }
     static getAllBuilds = () => {
         return db
             .manyOrNone(`SELECT * FROM user_builds`)
-            .then((builds) => builds.map((build) => new this(build)))
+            .then((builds) => builds.map((build) => new this(build))
+            )
+    }
+    static getAllBuildsForUser = (id) => {
+        return db
+            .manyOrNone(`SELECT * FROM user_builds WHERE user_id=$1`, [id])
+            .then((builds) => builds.map((build) => new this(build))
+            )
     }
     static getBuildById = (id) => {
         return db.oneOrNone(`
@@ -26,23 +37,44 @@ class UserBuild {
     save() {
         return db
             .one(`INSERT INTO user_builds
-            (make, model, part_type, price, user_id)
+            (cpu,
+                gpu,  
+                ram,  
+                motherboard, 
+                cooling,  
+                storage,  
+                psu,  
+                desktop_case,  
+                user_id)
         VALUES
-        ($/make/, $/model/, $/part_type/, $/price/, $/user_id/)
+        ($/cpu/,
+            $/gpu/,
+            $/ram/, 
+            $/motherboard/,
+            $/cooling/,
+            $/storage/,
+            $/psu/,
+            $/desktop_case/,
+            $/user_id/)
         RETURNING *`, this).then(part => Object.assign(this, part))
     }
 
     update(changes) {
         Object.assign(this, changes)
         return db
-            .one(`UPDATE user_builds SET 
-        make = $/make/,
-        model = $/model/,
-        part_type = $/part_type/,
-        price = $/price/
-        WHERE id = $/id/
-        RETURNING *
-        `,
+            .one(`
+            UPDATE user_builds SET 
+            cpu = $/cpu/,
+            gpu = $/gpu/,
+            ram = $/ram/,
+            motherboard = $/motherboard/,
+            cooling = $/cooling /,
+            storage = $/storage/, 
+            psu = $/psu/,
+            desktop_case = $/desktop_case/,
+            WHERE id = $/id/
+            RETURNING *
+            `,
                 this)
             .then((updatedBuild) => Object.assign(this, updatedBuild))
     }

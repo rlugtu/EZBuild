@@ -40,7 +40,7 @@ class ProductInfoPage extends Component {
                         <p>Generation: {this.props.allParts[this.state.selectedPart].generation}</p>}
                     {this.props.allParts[this.state.selectedPart].cores && <p>Cores: {this.props.allParts[this.state.selectedPart].cores}</p>}
 
-                    {this.props.allParts[this.state.selectedPart].image_url && <img src={this.props.allParts[this.state.selectedPart].image_url} />}
+                    {this.props.allParts[this.state.selectedPart].image_url && <img src={this.props.allParts[this.state.selectedPart].image_url} alt="hardware" />}
 
                 </div>
 
