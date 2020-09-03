@@ -43,6 +43,7 @@ userBuildController.create = (req, res, next) => {
         storage: req.body.storage,
         psu: req.body.psu,
         desktop_case: req.body.desktop_case,
+        total: req.body.total,
         user_id: req.user.id
     })
         .save()
@@ -67,6 +68,7 @@ userBuildController.update = (req, res, next) => {
                 storage: req.body.storage,
                 psu: req.body.psu,
                 desktop_case: req.body.desktop_case,
+                total: req.body.total
             })
         })
         .then((user_build) => {

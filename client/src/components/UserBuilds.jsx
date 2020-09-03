@@ -52,6 +52,7 @@ class UserBuilds extends Component {
                                 <p>{build.ram}</p>
                                 <p>{build.storage}</p>
                                 <p>{build.cooling}</p>
+                                <p>{build.total}</p>
                                 <button onClick={() => this.deleteBuild(build.id)}>Delete Build</button>
                             </div>
                         ) : null}
