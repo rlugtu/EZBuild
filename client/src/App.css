@@ -17,13 +17,22 @@ nav {
   font-size: 1.2rem;
   color: rgba(242, 241, 239, 1);
 }
-.navLeft, .navRight {
+.navLeft{
   display: flex;
   justify-content: space-between;
   width: 500px;
   padding: 0;
 }
-
+.navRight {
+  display: flex;
+  justify-content: flex-end
+}
+.navRight li {
+  margin: 0 30px;
+}
+.loginAndRegister{
+  display: flex;
+}
 ul {
   list-style-type: none;
 }

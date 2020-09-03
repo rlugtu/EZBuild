@@ -135,6 +135,7 @@ class ProductPage extends Component {
                                 cooling={this.state.cooling}
                                 motherboard={this.state.motherBoard}
                                 allRam={this.state.allRam}
+                                auth={this.props.auth}
                             />
                             {/* <div>
                                 {this.state.allParts.map((part, i) =>

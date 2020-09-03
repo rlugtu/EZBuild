@@ -83,7 +83,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header logout={this.logout} />
+        <Header logout={this.logout} auth={this.state.auth} />
         <div className="container">
           <Route exact path="/" component={Home} />
 
@@ -107,17 +107,17 @@ class App extends Component {
 
           {/* SHOP ROUTES */}
           <Route exact path="/builds/gaming" render={() =>
-            <BuildsController currentPage="gaming" />} />
+            <BuildsController auth={this.state.auth} currentPage="gaming" />} />
 
-          <Route exact path="/builds/streaming" render={() => <BuildsController currentPage="streaming" />} />
+          <Route exact path="/builds/streaming" render={() => <BuildsController auth={this.state.auth} currentPage="streaming" />} />
 
-          <Route exact path="/builds/creators" render={() => <BuildsController currentPage="creators" />} />
+          <Route exact path="/builds/creators" render={() => <BuildsController auth={this.state.auth} currentPage="creators" />} />
 
-          <Route exact path="/builds/gaming/:id" render={props => <BuildsController currentPage="single" selectedNiche='gaming' currentId={props.match.params.id} selectedBuild={props.match.params.id} />} />
+          <Route exact path="/builds/gaming/:id" render={props => <BuildsController auth={this.state.auth} currentPage="single" selectedNiche='gaming' currentId={props.match.params.id} selectedBuild={props.match.params.id} />} />
 
-          <Route exact path="/builds/streaming/:id" render={props => <BuildsController selectedNiche='streaming' currentPage="single" currentId={props.match.params.id} selectedBuild={props.match.params.id} />} />
+          <Route exact path="/builds/streaming/:id" render={props => <BuildsController auth={this.state.auth} selectedNiche='streaming' currentPage="single" currentId={props.match.params.id} selectedBuild={props.match.params.id} />} />
 
-          <Route exact path="/builds/creators/:id" render={props => <BuildsController currentPage="single" selectedNiche='creators' currentId={props.match.params.id} selectedBuild={props.match.params.id} />} />
+          <Route exact path="/builds/creators/:id" render={props => <BuildsController auth={this.state.auth} currentPage="single" selectedNiche='creators' currentId={props.match.params.id} selectedBuild={props.match.params.id} />} />
 
         </div>
         <Footer />

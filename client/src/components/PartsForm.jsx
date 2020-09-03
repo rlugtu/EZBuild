@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { withRouter } from 'react-router-dom'
 class PartsForm extends Component {
     constructor(props) {
         super(props);
@@ -25,19 +25,25 @@ class PartsForm extends Component {
     }
 
     handleFormSubmit(e, data) {
-        e.preventDefault()
-        fetch(`/api/user`, {
-            method: 'POST',
-            credentials: 'include',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        })
-            .then(res => res.json())
-            .then(res => {
-                console.log(res);
-            }).catch(err => console.log(err));
+        if (this.props.auth) {
+            e.preventDefault()
+            fetch(`/api/user`, {
+                method: 'POST',
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+                .then(res => res.json())
+                .then(res => {
+                    console.log(res);
+                }).catch(err => console.log(err));
+            this.props.history.push('/user')
+
+        } else {
+            this.props.history.push('/user')
+        }
     }
 
 
@@ -89,4 +95,4 @@ class PartsForm extends Component {
     }
 }
 
-export default PartsForm;
+export default withRouter(PartsForm);

@@ -50,7 +50,7 @@ class BuildsController extends Component {
             case 'creators':
                 return <NichePage currentPage={this.state.currentPage} allBuilds={this.state.allBuilds} />
             case 'single':
-                return <ProductPage currentPage={this.state.currentPage} selectedBuild={this.state.selectedBuild} selectedNiche={this.state.selectedNiche} currentId={this.state.currentId} />
+                return <ProductPage currentPage={this.state.currentPage} auth={this.props.auth} selectedBuild={this.state.selectedBuild} selectedNiche={this.state.selectedNiche} currentId={this.state.currentId} />
             default:
                 return <Redirect push to="/" />
         }
