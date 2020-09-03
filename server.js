@@ -26,8 +26,8 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// app.use(express.static('public'));
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static('public'));
+// app.use(express.static(path.join(__dirname, 'build')));
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
@@ -43,15 +43,15 @@ app.use('/api/parts', partRoutes)
 app.use('/api/auth', authRouter)
 app.use('/api/user', user_buildRouter)
 
-// app.use('*', (req, res) => {
-//   res.status(400).json({
-//     message: 'Not found!',
-//   });
-// });
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/client/build/index.html'));
+app.use('*', (req, res) => {
+  res.status(400).json({
+    message: 'Not found!',
+  });
 });
+
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname + '/client/build/index.html'));
+// });
 
 
 app.use((err, req, res, next) => {
