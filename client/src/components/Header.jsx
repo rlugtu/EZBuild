@@ -7,7 +7,7 @@ const Header = (props) => {
     return (
         <nav>
             <ul className="navLeft">
-                <li><Link to="/">EZBuild</Link></li>
+                <li><Link to="/"><span id='home'>EZBuild</span></Link></li>
                 <li><Link to="/builds/gaming">Gamers</Link></li>
                 <li><Link to="/builds/streaming">Streamers</Link></li>
                 <li><Link to="/builds/creators">Creators</Link></li>
