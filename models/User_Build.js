@@ -1,7 +1,7 @@
 const db = require('../db/config')
 
 class UserBuild {
-    constructor({ id, cpu, gpu, ram, motherboard, cooling, storage, psu, desktop_case, user_id }) {
+    constructor({ id, cpu, gpu, ram, motherboard, cooling, storage, psu, desktop_case, total, user_id }) {
         this.id = id || null;
         this.cpu = cpu;
         this.gpu = gpu
@@ -11,6 +11,7 @@ class UserBuild {
         this.storage = storage;
         this.psu = psu;
         this.desktop_case = desktop_case;
+        this.total = total;
         this.user_id = user_id
     }
     static getAllBuilds = () => {
@@ -44,7 +45,8 @@ class UserBuild {
                 cooling,  
                 storage,  
                 psu,  
-                desktop_case,  
+                desktop_case,
+                total,  
                 user_id)
         VALUES
         ($/cpu/,
@@ -55,6 +57,7 @@ class UserBuild {
             $/storage/,
             $/psu/,
             $/desktop_case/,
+            $/total/,
             $/user_id/)
         RETURNING *`, this).then(part => Object.assign(this, part))
     }
@@ -72,6 +75,7 @@ class UserBuild {
             storage = $/storage/, 
             psu = $/psu/,
             desktop_case = $/desktop_case/,
+            total = $/total/,
             WHERE id = $/id/
             RETURNING *
             `,

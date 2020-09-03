@@ -82,5 +82,6 @@ IF NOT EXISTS user_builds
     psu VARCHAR
 (255),
     desktop_case VARCHAR
-(255)
+(255),
+total INTEGER
     );

@@ -39,7 +39,7 @@ Build.getStreamingBronze = () => {
     return db.query(`
     SELECT * FROM parts
     INNER JOIN builds ON (builds.cpu_id=parts.cpu_id OR builds.gpu_id=parts.gpu_id)
-    AND builds.build_name='pinguine';`)
+    AND builds.build_name='pinguino';`)
 }
 
 Build.getStreamingSilver = () => {

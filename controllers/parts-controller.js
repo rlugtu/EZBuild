@@ -126,6 +126,14 @@ partController.getAllStorage = (req, res, next) => {
             })
         })
 }
-
+partController.getPrice = (req, res, next) => {
+    Part.getPrice()
+        .then((part) => {
+            res.json({
+                message: 'ok',
+                part
+            })
+        })
+}
 
 module.exports = partController
