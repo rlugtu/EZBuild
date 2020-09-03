@@ -12,7 +12,7 @@ VALUES
     ('gold', 'gaming', 'jaguar', 'a pricey but top of the line build satisfying enough for even the most competitive gamers.', 3, 3, 4, 3);
 
 
-INSERT INTO BUILDS
+INSERT INTO BUILDS  
     (price_tier, build_type, build_name, build_description, cpu_id, gpu_id, ram_id, ssd_id)
 VALUES
     ('bronze', 'streaming', 'pinguino', 'competent specs for content creators just getting started', 4, 4, 3, 3);

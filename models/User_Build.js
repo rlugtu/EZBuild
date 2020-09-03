@@ -11,7 +11,7 @@ class UserBuild {
         this.storage = storage;
         this.psu = psu;
         this.desktop_case = desktop_case;
-        this.user_id = user_id
+        this.user_id = user_id;
     }
     static getAllBuilds = () => {
         return db
@@ -35,7 +35,11 @@ class UserBuild {
     }
 
     save() {
-        return db
+        return dbINSERT INTO PARTS
+
+        (ram_id, make, part_type, model, capacity, price, price_tier, transfer_rate)
+    
+    VALUES (6, 'Kingston', 'ram', 'HyperX Predator', '16GB', 60, 'gold', 2666);
             .one(`INSERT INTO user_builds
             (cpu,
                 gpu,  
