@@ -9,6 +9,8 @@ const authRouter = require('./routes/auth-routes');
 const partRoutes = require('./routes/part-routes')
 const user_buildRouter = require('./routes/user_build-routes')
 const app = express();
+const path = require('path');
+
 require('dotenv').config();
 
 app.use(logger('dev'));
@@ -27,13 +29,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(express.static('public'));
+// app.use(express.static(path.join(__dirname, 'build')));
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 })
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
   res.send('Goodbye Cruel World!');
 });
 
@@ -42,11 +45,16 @@ app.use('/api/parts', partRoutes)
 app.use('/api/auth', authRouter)
 app.use('/api/user', user_buildRouter)
 
-app.use('*', (req, res) => {
-  res.status(400).json({
-    message: 'Not found!',
-  });
+// app.use('*', (req, res) => {
+//   res.status(400).json({
+//     message: 'Not found!',
+//   });
+// });
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/public/index.html'));
 });
+
 
 app.use((err, req, res, next) => {
   console.log(err);

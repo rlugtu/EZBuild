@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom'
+import { withRouter, Redirect } from 'react-router-dom'
 class PartsForm extends Component {
     constructor(props) {
         super(props);
@@ -11,7 +11,7 @@ class PartsForm extends Component {
             cooling: props.cooling ? props.cooling[0].model : ' ',
             cpu: props.allParts ? props.allParts[1].model : ' ',
             gpu: props.allParts ? props.allParts[0].model : ' ',
-            total: ''
+            total: '',
         }
         this.handleChange = this.handleChange.bind(this);
     }
@@ -22,7 +22,6 @@ class PartsForm extends Component {
         this.setState({
             [name]: value,
         });
-        this.addItemCost(value)
     }
 
     handleFormSubmit(e, data) {
@@ -40,35 +39,37 @@ class PartsForm extends Component {
                 .then(res => {
                     console.log(res);
                 }).catch(err => console.log(err));
-            this.props.history.push('/user')
+            this.setState({
+                redirect: true
+            })
 
-        } else {
-            this.props.history.push('/user')
         }
     }
 
-    componentDidMount() {
-        this.getTotal()
-    }
+
 
     // getPartPrice()
     getTotal = () => {
-        let totalCost = (this.props.allParts ? this.props.allParts[0].price : null) + (this.props.allParts ? this.props.allParts[1].price : null) + (this.props.motherboard ? this.props.motherboard[0].price : null) + (this.props.cooling && this.props.cooling[0].price) + (this.props.psu ? this.props.psu[0].price : null)
+        let totalCost = (this.props.allParts ? this.props.allParts[0].price : null) + (this.props.allParts ? this.props.allParts[1].price : null) +
+            (this.props.motherboard ? this.props.motherboard[0].price : null) +
+            (this.props.cooling ? this.props.cooling[0].price : null) +
+            (this.props.psu ? this.props.psu[0].price : null) +
+            (this.state.storage ? parseInt(this.state.storage) : 0) +
+            (this.state.ram ? parseInt(this.state.ram) : 0)
 
         this.setState({
             total: totalCost
         })
-        return totalCost
     }
 
-    addItemCost = (item) => {
-        let currentTotal = this.state.total
-        // item = typeof item !== 'undefined' ? item : 0;
-        // let totalCost = (this.props.allParts ? this.props.allParts[0].price : null) + (this.props.allParts ? this.props.allParts[1].price : null) + (this.props.motherboard ? this.props.motherboard[0].price : null) + (this.props.cooling && this.props.cooling[0].price) + (this.props.psu ? this.props.psu[0].price : null)
-        this.setState({
-            total: currentTotal + parseInt(item)
-        })
-    }
+    // addRamAndStorage = () => {
+    //     this.getTotal()
+    //     let newTotal = this.state.total + parseInt(this.state.storage) + parseInt(this.state.ram)
+    //     console.log(newTotal)
+    //     this.setState({
+    //         total: newTotal
+    //     })
+    // }
 
     render() {
         return (
@@ -122,7 +123,7 @@ class PartsForm extends Component {
                 </h1> */}
                 <h1>$ {this.state.total}</h1>
                 <button onClick={this.getTotal}>Calculate</button>
-
+                {this.state.redirect ? <Redirect to="/user" /> : null}
             </div >
 
         )
