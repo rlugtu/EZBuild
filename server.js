@@ -26,14 +26,14 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(express.static('public'));
+app.use(express.static('src'));
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 })
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
   res.send('Goodbye Cruel World!');
 });
 
