@@ -27,7 +27,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // app.use(express.static('public'));
-app.use(express.static(path.join(__dirname, 'client/src')));
+app.use(express.static(path.join(__dirname, 'build')));
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
@@ -50,7 +50,7 @@ app.use('/api/user', user_buildRouter)
 // });
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/client/public/index.html'));
+  res.sendFile(path.join(__dirname + '/client/build/index.html'));
 });
 
 
