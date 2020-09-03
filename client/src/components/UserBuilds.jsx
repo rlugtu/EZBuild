@@ -18,13 +18,14 @@ class UserBuilds extends Component {
                     allBuilds: res
                 })
             }).catch(err => console.log(err))
+        return
     }
     componentDidMount() {
         this.getAllUserBuilds()
     }
-    componentDidUpdate() {
-        this.getAllUserBuilds()
-    }
+    // componentDidUpdate() {
+    //     this.getAllUserBuilds()
+    // }
 
     deleteBuild = (id) => {
         fetch(`/api/user/${id}`, {
