@@ -13,6 +13,8 @@ CREATE TABLE
 IF NOT EXISTS parts
 (
     id SERIAL PRIMARY KEY,
+    part_type VARCHAR
+(255),
     cpu_id INTEGER,
     gpu_id INTEGER,
     make VARCHAR
@@ -20,8 +22,6 @@ IF NOT EXISTS parts
     model VARCHAR
 (255),
     price INTEGER NOT NULL,
-    part_type VARCHAR
-(255),
     price_tier VARCHAR
 (255),
     image_url VARCHAR
@@ -63,14 +63,25 @@ IF NOT EXISTS builds
     ssd_id INTEGER NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS user_builds
+CREATE TABLE
+IF NOT EXISTS user_builds
 (
     id SERIAL PRIMARY KEY,
-    price_tier VARCHAR (255),
-    cpu_id INTEGER NOT NULL,
-    gpu_id INTEGER NOT NULL,
-    ram_id INTEGER NOT NULL,
-    ssd_id INTEGER NOT NULL,
-    FOREIGN KEY(id)
-    REFERENCES users(id)
-);
+    cpu VARCHAR
+(255),
+    gpu VARCHAR
+(255),
+    ram VARCHAR
+(255),
+    motherboard VARCHAR
+(255),
+    cooling VARCHAR
+(255),
+    storage VARCHAR
+(255),
+    psu VARCHAR
+(255),
+    desktop_case VARCHAR
+(255),
+total INTEGER
+    );

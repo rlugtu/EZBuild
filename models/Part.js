@@ -54,5 +54,8 @@ Part.getAllStorage = () => {
     return db.query(`SELECT * FROM parts WHERE parts.part_type='storage';`)
 }
 
+Part.getPrice = (id) => {
+    return db.query(`SELECT parts.price FROM parts WHERE =$1`, id)
+}
 
 module.exports = Part

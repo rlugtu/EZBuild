@@ -3,6 +3,11 @@ body {
   margin: 0;
 }
 
+h1{
+  margin: 0;
+  font-size: 2rem;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -12,13 +17,22 @@ nav {
   font-size: 1.2rem;
   color: rgba(242, 241, 239, 1);
 }
-.navLeft, .navRight {
+.navLeft{
   display: flex;
   justify-content: space-between;
   width: 500px;
   padding: 0;
 }
-
+.navRight {
+  display: flex;
+  justify-content: flex-end
+}
+.navRight li {
+  margin: 0 30px;
+}
+.loginAndRegister{
+  display: flex;
+}
 ul {
   list-style-type: none;
 }
@@ -196,4 +210,34 @@ height: 100%;
   border-radius: 2px;
   color: black;
   background-color: black;
+}
+
+select {
+  padding: 5px;
+  font-size: 1.2rem;
+}
+
+/* USER BUILDS */
+
+.userContainer {
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+}
+.userBuildsContainer {
+  display: flex;
+}
+.userBuilds {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border: 3px solid black;
+  margin: 30px;
+  padding: 20px;
+  background-color:  darkgrey;
+  color: black;
+  
+}
+.userBuilds p {
+  font-size: 1.5rem;
 }

@@ -28,19 +28,19 @@ class ProductInfoPage extends Component {
     render() {
         return (
             <div className="infoContainer">
-                {/* <div className="productContent">
-                        {this.props.allParts.map((part, i) =>
-                            <div className="productInput" key={i}>
-                                <p>{part.part_description}</p>
-                            </div>)}
-                    </div> */}
+                <div className="productContent">
+                    {this.props.allParts.map((part, i) =>
+                        <div className="productInput" key={i}>
+                            <p>{part.part_description}</p>
+                        </div>)}
+                </div>
                 <div className="infoContent">
-                    <p>{this.props.allParts[this.state.selectedPart].part_description}</p>
+                    {/* <p>{this.props.allParts[this.state.selectedPart].part_description}</p>
                     {this.props.allParts[this.state.selectedPart].generation &&
                         <p>Generation: {this.props.allParts[this.state.selectedPart].generation}</p>}
                     {this.props.allParts[this.state.selectedPart].cores && <p>Cores: {this.props.allParts[this.state.selectedPart].cores}</p>}
 
-                    {this.props.allParts[this.state.selectedPart].image_url && <img src={this.props.allParts[this.state.selectedPart].image_url} />}
+                    {this.props.allParts[this.state.selectedPart].image_url && <img src={this.props.allParts[this.state.selectedPart].image_url} alt="hardware" />} */}
 
                 </div>
 

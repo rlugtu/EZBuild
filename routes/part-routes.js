@@ -22,5 +22,6 @@ partRoutes.get('/psu/silver', partController.getSilverPSU)
 partRoutes.get('/psu/gold', partController.getGoldPSU)
 
 partRoutes.get('/storage', partController.getAllStorage)
+partRoutes.get('/price', partController.getPrice)
 
 module.exports = partRoutes
