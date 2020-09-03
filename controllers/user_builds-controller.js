@@ -43,6 +43,8 @@ userBuildController.create = (req, res, next) => {
         storage: req.body.storage,
         psu: req.body.psu,
         desktop_case: req.body.desktop_case,
+        title: req.body.title,
+        notes: req.body.notes,
         total: req.body.total,
         user_id: req.user.id
     })
@@ -58,7 +60,7 @@ userBuildController.create = (req, res, next) => {
 
 userBuildController.update = (req, res, next) => {
     UserBuild.getBuildById(req.params.id)
-        .then((user_build) => {
+        .then((user_build) =>
             user_build.update({
                 cpu: req.body.cpu,
                 gpu: req.body.gpu,
@@ -68,9 +70,11 @@ userBuildController.update = (req, res, next) => {
                 storage: req.body.storage,
                 psu: req.body.psu,
                 desktop_case: req.body.desktop_case,
+                title: req.body.title,
+                notes: req.body.notes,
                 total: req.body.total
             })
-        })
+        )
         .then((user_build) => {
             res.json({
                 message: 'Build Updated',

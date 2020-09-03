@@ -42,7 +42,6 @@ class NichePage extends Component {
                     )}
                 </div>
             </div>
-
         )
     }
 }

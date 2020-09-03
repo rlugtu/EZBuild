@@ -133,3 +133,16 @@ INSERT INTO PARTS
     (model, price_tier, voltage, price, part_type)
 VALUES
     ('EVGA SuperNova G2', 'gold', 650, 130, 'psu');
+
+INSERT INTO PARTS
+    (model, make, part_type, price, price_tier)
+VALUES
+    ('Cooler Master', 'MasterBox', 'case', 50, 'bronze');
+INSERT INTO PARTS
+    (model, make, part_type, price, price_tier)
+VALUES
+    ('NZXT', 'H510', 'case', 70, 'silver');
+INSERT INTO PARTS
+    (model, make, part_type, price, price_tier)
+VALUES
+    ('ASUS', 'TUF GT301', 'case', 100, 'gold');
