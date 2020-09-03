@@ -14,19 +14,19 @@ class UserBuild {
         this.total = total;
         this.user_id = user_id
     }
-    static getAllBuilds = () => {
+    static getAllBuilds() {
         return db
             .manyOrNone(`SELECT * FROM user_builds`)
             .then((builds) => builds.map((build) => new this(build))
             )
     }
-    static getAllBuildsForUser = (id) => {
+    static getAllBuildsForUser(id) {
         return db
             .manyOrNone(`SELECT * FROM user_builds WHERE user_id=$1`, [id])
             .then((builds) => builds.map((build) => new this(build))
             )
     }
-    static getBuildById = (id) => {
+    static getBuildById(id) {
         return db.oneOrNone(`
         SELECT * FROM user_builds WHERE id = $1`, [id])
             .then((build) => {
