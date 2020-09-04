@@ -120,7 +120,6 @@ class App extends Component {
           <Route exact path="/builds/creators/:id" render={props => <BuildsController auth={this.state.auth} currentPage="single" selectedNiche='creators' currentId={props.match.params.id} selectedBuild={props.match.params.id} />} />
 
         </div>
-        <Footer />
       </div>
     )
   }

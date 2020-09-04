@@ -1,7 +1,7 @@
 body {
   height: 100%;
   margin: 0;
-  font-family: 'Lato', sans-serif;
+  font-family: 'a_atmosphericregular', sans-serif;
 }
 
 h1{
@@ -12,7 +12,7 @@ h1{
 }
 
 p {
-  font-family: 'Lato', sans-serif;
+  font-family: 'a_atmosphericregular', sans-serif;
 }
 
 nav {
@@ -48,7 +48,7 @@ nav {
   justify-content: flex-end;
   flex-direction: column;
   text-align: right;
-  font-family: 'Audiowide', cursive;
+  font-family: 'a_atmosphericregular', cursive;
 }
 
 .navRight a {
@@ -91,7 +91,6 @@ a {
 
 .header {
   display: flex;
-  justify-content: 
 }
 
 .brandName {
@@ -111,7 +110,7 @@ a {
 }
 
 .brandStatement p {
-  font-size: 0.8rem;
+  font-size: 1.5rem;
   text-align: center;
   margin-left: 30px;
   align-content: center;
@@ -125,12 +124,20 @@ a {
   justify-content: space-evenly;
 }
 
+.nicheCategories {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-content: center;
+}
+
 .gamersHomeButton,.streamersHomeButton,.creatorsHomeButton {
   display: flex; 
   flex-direction: column;
   min-height: 40vh;
   width: 30%;
-  align-items: stretch;
   margin: 0px;
   padding: 20px;
   cursor: pointer;
@@ -139,33 +146,38 @@ a {
 
 .gamersHomeButton {
   background-color: #ca76af;
-  border: 4px solid #2f8280;
+  border: 4px solid #a74086;
+  border-radius: 5%;
+}
+
+.gamersHomeButton p, h2, h3 {
+  color: #a74086;
+}
+
+.streamersHomeButton {
+  background-color: #ca76af;
+  border: 4px solid #a74086;
+  border-radius: 5%;
+}
+
+.creatorsHomeButton {
+  background-color: #ca76af;
+  border: 4px solid #a74086;
   border-radius: 5%;
 }
 
 .animalToken {
-  //border-radius: 50%;
-  //border: 5px solid black;
-  width: 400px;
-  background-color: #deaacd;
+  border-radius: 50%;
+  border: 5px solid #a74086;
+  width: 300px;
+  height: 300px;
+  background-image: url("https://imgur.com/r2utJL3.jpeg");
+  background-size: cover;
   border-radius: 50%;
   margin: 20px;
 }
 
-/*.gamersHomeButton img {
-  border-radius: 20%;
-  border: 2px solid yellow;
-  width: 300px;
-  background-color: green;
-}*/
 
-.streamersHomeButton {
-  background-color: green;
-}
-
-.creatorsHomeButton {
-  background-color: blue;
-}
 
 .nicheImage {
   display: flex; 
@@ -182,6 +194,7 @@ a {
   max-width: 20vw;
   max-height: 30vh;
   object-fit: cover;
+  align-items: center;
 }
 /* footer {
   text-align: center;
@@ -190,6 +203,13 @@ a {
   width: 100%;
   height: 2.5rem;           
 } */
+
+.pcInfoHolder {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 5px black solid;
+}
 
 .controller {
   width: 100%;
@@ -205,6 +225,7 @@ a {
 .nicheProducts {
 display: flex;
 justify-content: space-evenly;
+flex-direction: row;
 height: 100%;
 }
 .nicheProductSingle {

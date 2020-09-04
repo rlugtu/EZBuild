@@ -11,36 +11,43 @@ const Home = (props) => {
                 </div>
                 <div className="brandStatement">
                     <p>Having the right computer for your needs shouldn't require you to have a degree in engineering. That's why EZBuild is here. We do the heavy lifting so you don't have to - researching all of the important components and bundling them together to provide you with the right balance of specs for your vocation.</p>
-                    <p>Whether you're looking to boost your kill/death ratio, share your personality with the rest of the world via streaming, or create killer content to share with your fans, we'll help you find a custom build that suits both your needs and your budget.</p>
-                    <p>And while we keep things simple for the sake of our customers, you'll find some smart options for customizing your easy build.</p>
                 </div>
             </div>
             <div className="categories">
                 <div className="gamersHomeButton">
                     <div className="nicheImage">
-                        <Link to="/builds/gaming"><img className='animalToken' src="https://imgur.com/VpZ61Tx.png " alt={"predator"}></img></Link>
-                        <h1>GAMING</h1>
-                        <h3>Tight, lean and built for performance</h3>
-                        <p>specs seamlessly balanced for power and acuity. <br></br>balanced gpu and cpu. <br></br>all lean muscle. no fat.</p>
+                        <Link to="/builds/gaming"><img className='animalToken' src="https://imgur.com/bvBFqIk.png " alt={"predator"}></img></Link>
+                    </div>
+                    <div>
+                        <h1>BESTIA</h1>
+                        <h2>Gaming PCs</h2>
+                        <h3>Tight, lean and tailored for performance</h3>
+                        <p>specs seamlessly balanced for power and acuity.<br></br>balanced gpu and cpu.<br></br>all lean muscle. no fat.</p>
                     </div>
                 </div>
                 <div className="streamersHomeButton">
                     <div className="nicheImage">
-                        <Link to="/builds/streaming"><img src="https://www.nzxt.com/assets/homepage/h510-elite-white-black-dc7369e78f982928f808609aa9879b8d8e84ea9138ddbaeec97a066ab415de98.png" alt={"computer"}></img></Link>
-                        <h1>Streaming</h1>
+                        <Link to="/builds/streaming"><img className='animalToken' src="https://imgur.com/bvBFqIk.png " alt={"aquatic"}></img></Link>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, molestias explicabo mollitia illum ducimus delectus officia voluptates quo incidunt dicta minus</p>
+                        <h1>AQUATICA</h1>
+                        <h2>Streaming PCs</h2>
+                        <h3>Smooth, fluid performance for live video</h3>
+                        <p>specs built to follow the stream with no gameplay stutter
+                        <br></br>creative streaming options for any budget<br></br>high core counts for pragmatic multitasking</p>
                 </div>
                 <div className="creatorsHomeButton">
                     <div className="nicheImage">
-                        <Link to="/builds/creators"><img src="https://www.nzxt.com/assets/homepage/h510-elite-white-black-dc7369e78f982928f808609aa9879b8d8e84ea9138ddbaeec97a066ab415de98.png" alt={"computer"}></img></Link>
-                        <h1>Creating</h1>
+                        <Link to="/builds/creators"><img className='animalToken' src="https://imgur.com/bvBFqIk.png " alt={"birds"}></img></Link>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, molestias explicabo mollitia illum ducimus delectus officia voluptates quo incidunt dicta minus</p>
-                </div>
+                        <h1>ETEREO</h1>
+                        <h2>Creator PCs</h2>
+                        <h3>Nimble builds suited to anhy creative task</h3>
+                        <p>specs with a focus on raw processing power.<br></br>adequate gpus with impressive central processors<br></br>suited for video, photo, and sound editing</p>
+                    </div>
             </div>
-        </div>  
-    )
+        
+        </div>
+                )
 }
 
 export default Home
