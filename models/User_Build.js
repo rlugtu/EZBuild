@@ -24,7 +24,7 @@ class UserBuild {
     }
     static getAllBuildsForUser(id) {
         return db
-            .manyOrNone(`SELECT * FROM user_builds WHERE user_id=$1`, [id])
+            .manyOrNone(`SELECT * FROM user_builds WHERE user_id=$1 ORDER BY id ASC`, [id])
             .then((builds) => builds.map((build) => new this(build))
             )
     }
