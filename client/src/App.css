@@ -127,11 +127,12 @@ a {
 
 .nicheCategories {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   width: 100%;
-  justify-content: space-evenly;
+  justify-content: center;
   flex-direction: column;
   align-content: center;
+  padding: 20px;
 }
 
 .gamersHomeButton,.streamersHomeButton,.creatorsHomeButton {
@@ -168,6 +169,7 @@ a {
 }
 
 .animalToken {
+
   border-radius: 50%;
   border: 5px solid #a74086;
   width: 300px;
@@ -176,19 +178,21 @@ a {
   background-size: cover;
   border-radius: 50%;
   margin: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 
 
-.nicheImage {
+/* .nicheImage {
   display: flex; 
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
+  width: ;
   height: 100%;
   overflow: hidden; 
-}
+} */
 
 
 .nicheImage img {
@@ -209,7 +213,11 @@ a {
   display: flex;
   align-items: center;
   flex-direction: column;
-  border: 5px black solid;
+  background-color: #ca76af;
+  border: 4px solid #a74086;
+  border-radius: 5%;
+  max-height: 40vh;
+  min-height: 10vh;
 }
 
 .controller {
