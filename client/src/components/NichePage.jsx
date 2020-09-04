@@ -34,7 +34,9 @@ class NichePage extends Component {
                     {/* map through Niche Builds and render a component (to be made still ) with that builds info  */}
                     {this.state.allBuilds.map((build, i) =>
                         <div className="nicheCategories" key={i}>
-                            <Link to={'/builds/' + this.state.currentPage + '/' + build.price_tier}><img className="animalToken" src={build.image_url} alt={"animal"}></img></Link>
+                            <Link to={'/builds/' + this.state.currentPage + '/' + build.price_tier}><div className="animalToken"></div></Link>
+                            {/* <Link to={'/builds/' + this.state.currentPage + '/' + build.price_tier}><img className="animalToken" src={build.image_url} alt={"animal"}></img></Link> */}
+
                             <div className='pcInfoHolder'>
                                 <h1>{build.build_name}</h1>
                                 <h1>{build.price_tier}</h1>
