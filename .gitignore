@@ -2,5 +2,9 @@
 node_modules
 /config.local
 /db/config.js
+
+config.js
+
 public
 client/build
+
