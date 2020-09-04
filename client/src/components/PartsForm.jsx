@@ -5,9 +5,9 @@ class PartsForm extends Component {
         super(props);
         this.state = {
             motherboard: props.motherboard ? props.motherboard[0].model : ' ',
-            ram: ' ',
+            ram: 0,
             psu: props.psu ? props.psu[0].model : ' ',
-            storage: props.storage ? props.storage[0].make + props.storage[0].capacity : ' ',
+            storage: 0,
             cooling: props.cooling ? props.cooling[0].model : ' ',
             cpu: props.allParts ? props.allParts[1].model : ' ',
             gpu: props.allParts ? props.allParts[0].model : ' ',
@@ -92,7 +92,7 @@ class PartsForm extends Component {
 
                     <h1>RAM:</h1>
                     <select onChange={this.handleChange} name={'ram'} value={this.state.ram}    >
-                        <option value=' '>Choose Ram</option>
+                        <option value='0'>Choose Ram</option>
                         {this.props.allRam && <option value={this.props.allRam[0].price + ' ' + this.props.allRam[0].model}>{this.props.allRam[0].capacity}</option>
                         }
                         {this.props.allRam && <option value={this.props.allRam[1].price + ' ' + this.props.allRam[1].model}>{this.props.allRam[1].capacity}</option>
@@ -106,7 +106,7 @@ class PartsForm extends Component {
 
                     <h1>Storage:</h1>
                     <select onChange={this.handleChange} name={'storage'} value={this.state.storage}  >
-                        <option value=' '>Choose Storage</option>
+                        <option value='0'>Choose Storage</option>
                         {this.props.storage && <option value={this.props.storage[0].price + ' ' + this.props.storage[0].make + ' ' + this.props.storage[0].capacity}>{this.props.storage[0].capacity}</option>
                         }
                         {this.props.storage && <option value={this.props.storage[1].price + ' ' + this.props.storage[1].make + ' ' + this.props.storage[1].capacity}>{this.props.storage[1].capacity}</option>
