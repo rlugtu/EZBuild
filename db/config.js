@@ -15,8 +15,8 @@ function setDatabase() {
       database: DB_NAME,
       port: 5432,
       host: 'localhost',
-      // user: 'postgres',
-      // password: 'my_postgres_password'
+       user: 'postgres',
+       password: 'asdfdsa'
     })
   } else if (process.env.NODE_ENV === 'production') {
     return pgp(process.env.DATABASE_URL);
