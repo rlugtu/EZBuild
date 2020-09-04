@@ -66,7 +66,6 @@ class UserBuilds extends Component {
     render() {
         return (
             <div className="userContainer">
-                <h1>Welcome {this.props.user.username}</h1>
                 <div className="userBuildsContainer">
                     {this.state.allBuilds && this.state.buy === false ?
                         this.state.allBuilds.user_build.map((build, i) =>
@@ -86,7 +85,7 @@ class UserBuilds extends Component {
                             </div>
                         ) : null}
                 </div>
-                {this.state.edit ? <UserEdit selectedBuild={this.state.selectedBuild} turnOff={this.turnEditOff} updateBuilds={this.getAllUserBuilds} /> : null}
+                {this.state.edit ? <UserEdit selectedBuild={this.state.selectedBuild} turnOff={this.turnEditOff} updateBuilds={this.getAllUserBuilds()} /> : null}
 
                 {this.state.buy ? <Buy setBuy={this.chooseBuy} selectedBuild={this.state.selectedBuild} /> : null}
             </div>
