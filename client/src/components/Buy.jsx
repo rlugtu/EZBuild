@@ -26,9 +26,9 @@ class Buy extends Component{
             <div>
                 <form>
                     <input type="text" name='name' value={this.state.name} placeholder='Name' onChange={this.handleInputChange} />
-                    <input type="nubmer" name='cardNumber' value={this.state.cardNumber} placeholder='CardNumber' onChange={this.handleInputChange} />
-                    <input type="nubmer" name='zip' value={this.state.zip} placeholder='ZipCode' onChange={this.handleInputChange} />
-                    <input type="nubmer" name='cvc' value={this.state.cvc} placeholder='CVC' onChange={this.handleInputChange} /> 
+                    <input type="number" name='cardNumber' value={this.state.cardNumber} placeholder='CardNumber' onChange={this.handleInputChange} />
+                    <input type="number" name='zip' value={this.state.zip} placeholder='ZipCode' onChange={this.handleInputChange} />
+                    <input type="password" name='cvc' value={this.state.cvc} placeholder='CVC' onChange={this.handleInputChange} /> 
                 </form>
             </div>
         )
