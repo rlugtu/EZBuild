@@ -43,8 +43,10 @@ class PartsForm extends Component {
             this.setState({
                 redirect: true
             })
-
         }
+        this.setState({
+            redirect: true
+        })
     }
 
 
