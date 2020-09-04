@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter, Redirect } from 'react-router-dom'
+
 class PartsForm extends Component {
     constructor(props) {
         super(props);
@@ -40,10 +41,12 @@ class PartsForm extends Component {
                 .then(res => {
                     console.log(res);
                 }).catch(err => console.log(err));
+            // this.props.history.push('/user')
             this.setState({
                 redirect: true
             })
         }
+        // this.props.history.push('/user')
         this.setState({
             redirect: true
         })
@@ -119,7 +122,7 @@ class PartsForm extends Component {
                         {this.props.storage && <option value={this.props.storage[3].price + ' ' + this.props.storage[3].make + ' ' + this.props.storage[3].capacity}>{this.props.storage[3].capacity}</option>
                         }
                     </select>
-                    <input type="submit" value={this.props.isAdd ? 'Add it!' : 'Save this Build'} />
+                    <input type="submit" value='Save this Build' />
                 </form>
                 {/* <h1>Total:
                         {(this.props.allParts ? this.props.allParts[0].price : null) + (this.props.allParts ? this.props.allParts[1].price : null) + (this.props.motherboard ? this.props.motherboard[0].price : null) + (this.props.cooling && this.props.cooling[0].price) + (this.props.psu ? this.props.psu[0].price : null)}

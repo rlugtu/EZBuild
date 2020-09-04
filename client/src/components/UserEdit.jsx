@@ -43,7 +43,7 @@ class EditForm extends Component {
             .then(res => {
                 console.log('done')
             }).catch(err => console.log(err));
-        this.props.getAllUserBuilds(this.props.selectedBuild.user_build.user_id)
+        // this.props.getAllUserBuilds
         this.props.turnOff()
     }
 
@@ -65,7 +65,7 @@ class EditForm extends Component {
                 {this.props.selectedBuild ? <div><form onSubmit={(e) => this.handleEditSubmit(e, this.state)}>
                     <input type="text" name='title' value={this.state.title} placeholder='Title' onChange={this.handleInputChange} />
                     <input type="textbox" name='notes' value={this.state.notes} placeholder='Notes' onChange={this.handleInputChange} />
-                    <input type="submit" value="Submit" />
+                    <input onClick={() => this.props.getAllUserBuilds} type="submit" value="Submit" />
                 </form>
                     <h1>{this.props.selectedBuild.user_build.id}</h1>
 

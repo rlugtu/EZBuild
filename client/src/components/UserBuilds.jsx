@@ -80,7 +80,7 @@ class UserBuilds extends Component {
                             </div>
                         ) : null}
                 </div>
-                {this.state.edit ? <UserEdit selectedBuild={this.state.selectedBuild} getAllUserBuilds={this.getAllUserBuilds} turnOff={this.turnEditOff} /> : null}
+                {this.state.edit ? <UserEdit selectedBuild={this.state.selectedBuild} getAllUserBuilds={this.getAllUserBuilds()} turnOff={this.turnEditOff} /> : null}
             </div>
 
         )
