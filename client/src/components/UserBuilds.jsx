@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import UserEdit from './UserEdit'
+import Buy from './Buy'
 
 class UserBuilds extends Component {
     constructor(props) {
@@ -8,6 +9,7 @@ class UserBuilds extends Component {
             userID: props.user.id,
             allBuilds: null,
             edit: false,
+            buy: false,
             selectedBuild: null
             // checks which niche
             // Niche Builds state that has builds from specific niche as obj
@@ -45,20 +47,20 @@ class UserBuilds extends Component {
     }
     turnEditOff = () => {
         this.setState({
-            edit: false
+            edit: true
         })
     }
 
     chooseSelectedBuild = (id) => {
-        fetch(`/api/user/build/${id}`, { credentials: 'include' })
-            .then(res => res.json())
-            .then(res => {
-                this.setState({
-                    selectedBuild: res,
-                    edit: !this.state.edit
+        this.setState({
+            selectedBuild: this.state.allBuilds.user_build[id]
+        })
+    }
 
-                })
-            }).catch(err => console.log(err))
+    chooseBuy = () => {
+        this.setState({
+            buy: !this.state.buy
+        })
     }
 
     render() {
@@ -66,7 +68,7 @@ class UserBuilds extends Component {
             <div className="userContainer">
                 <h1>Welcome {this.props.user.username}</h1>
                 <div className="userBuildsContainer">
-                    {this.state.allBuilds ?
+                    {this.state.allBuilds && this.state.buy === false ?
                         this.state.allBuilds.user_build.map((build, i) =>
                             <div className="userBuilds" key={i}>
                                 {build.title ? <p>{build.title}</p> : null}
@@ -79,11 +81,14 @@ class UserBuilds extends Component {
                                 <p>${build.total}</p>
                                 {build.notes ? <p>{build.notes}</p> : null}
                                 <button onClick={() => this.deleteBuild(build.id)}>Delete Build</button>
-                                <button onClick={() => this.chooseSelectedBuild(build.id)}>Add Description</button>
+                                <button onClick={() => { this.chooseSelectedBuild(i); this.turnEditOff() }}>Add Description</button>
+                                <button onClick={() => { this.chooseBuy(); this.chooseSelectedBuild(i) }}>Purchase</button>
                             </div>
                         ) : null}
                 </div>
-                {this.state.edit ? <UserEdit selectedBuild={this.state.selectedBuild} getAllUserBuilds={this.getAllUserBuilds()} turnOff={this.turnEditOff} /> : null}
+                {this.state.edit ? <UserEdit selectedBuild={this.state.selectedBuild} turnOff={this.turnEditOff} updateBuilds={this.getAllUserBuilds} /> : null}
+
+                {this.state.buy ? <Buy setBuy={this.chooseBuy} selectedBuild={this.state.selectedBuild} /> : null}
             </div>
 
         )

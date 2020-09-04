@@ -6,13 +6,13 @@ class EditForm extends Component {
         this.state = {
             title: ' ',
             notes: ' ',
-            cpu: this.props.selectedBuild && this.props.selectedBuild.user_build.cpu,
-            gpu: this.props.selectedBuild && this.props.selectedBuild.user_build.gpu,
-            motherboard: this.props.selectedBuild && this.props.selectedBuild.user_build.motherboard,
-            psu: this.props.selectedBuild && this.props.selectedBuild.user_build.psu,
-            ram: this.props.selectedBuild && this.props.selectedBuild.user_build.ram,
-            storage: this.props.selectedBuild && this.props.selectedBuild.user_build.storage,
-            total: this.props.selectedBuild && this.props.selectedBuild.user_build.total
+            cpu: this.props.selectedBuild && this.props.selectedBuild.cpu,
+            gpu: this.props.selectedBuild && this.props.selectedBuild.gpu,
+            motherboard: this.props.selectedBuild && this.props.selectedBuild.motherboard,
+            psu: this.props.selectedBuild && this.props.selectedBuild.psu,
+            ram: this.props.selectedBuild && this.props.selectedBuild.ram,
+            storage: this.props.selectedBuild && this.props.selectedBuild.storage,
+            total: this.props.selectedBuild && this.props.selectedBuild.total
         }
     }
     // componentDidMount() {
@@ -31,7 +31,7 @@ class EditForm extends Component {
 
     handleEditSubmit = (e, data) => {
         e.preventDefault();
-        fetch(`/api/user/${this.props.selectedBuild.user_build.id}`, {
+        fetch(`/api/user/${this.props.selectedBuild.id}`, {
             method: 'PUT',
             credentials: 'include',
             headers: {
@@ -43,7 +43,7 @@ class EditForm extends Component {
             .then(res => {
                 console.log('done')
             }).catch(err => console.log(err));
-        // this.props.getAllUserBuilds
+        this.props.updateBuilds()
         this.props.turnOff()
     }
 
@@ -67,7 +67,7 @@ class EditForm extends Component {
                     <input type="textbox" name='notes' value={this.state.notes} placeholder='Notes' onChange={this.handleInputChange} />
                     <input onClick={() => this.props.getAllUserBuilds} type="submit" value="Submit" />
                 </form>
-                    <h1>{this.props.selectedBuild.user_build.id}</h1>
+                    <h1>{this.props.selectedBuild.id}</h1>
 
                 </div> : null}
 
