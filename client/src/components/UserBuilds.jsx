@@ -11,6 +11,7 @@ class UserBuilds extends Component {
             selectedBuild: null
             // checks which niche
             // Niche Builds state that has builds from specific niche as obj
+            //added comment 
         }
     }
     getAllUserBuilds = (id) => {
@@ -25,9 +26,11 @@ class UserBuilds extends Component {
     componentDidMount() {
         this.getAllUserBuilds()
     }
-    // componentDidUpdate() {
-    //     this.getAllUserBuilds()
-    // }
+    componentDidUpdate(prevProps) {
+        if (this.props.userID !== prevProps.userID) {
+            this.getAllUserBuilds()
+        }
+    }
 
     deleteBuild = (id) => {
         fetch(`/api/user/${id}`, {
@@ -80,7 +83,7 @@ class UserBuilds extends Component {
                             </div>
                         ) : null}
                 </div>
-                {this.state.edit ? <UserEdit selectedBuild={this.state.selectedBuild} getAllUserBuilds={this.getAllUserBuilds} turnOff={this.turnEditOff} /> : null}
+                {this.state.edit ? <UserEdit selectedBuild={this.state.selectedBuild} getAllUserBuilds={this.getAllUserBuilds()} turnOff={this.turnEditOff} /> : null}
             </div>
 
         )
