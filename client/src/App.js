@@ -8,6 +8,8 @@ import BuildsController from './components/BuildsController'
 import Login from './components/Login';
 import Register from './components/Register'
 import UserBuilds from './components/UserBuilds'
+import Buy from './components/Buy'
+
 
 
 class App extends Component {
@@ -119,6 +121,7 @@ class App extends Component {
 
           <Route exact path="/builds/creators/:id" render={props => <BuildsController auth={this.state.auth} currentPage="single" selectedNiche='creators' currentId={props.match.params.id} selectedBuild={props.match.params.id} />} />
 
+          <Route exact path="/user/buy" component={Buy} />
         </div>
       </div>
     )
