@@ -110,9 +110,9 @@ class ProductPage extends Component {
     render() {
         return (
             <div className="productBody">
-                <h1 className="brandStatement">{this.props.selectedNiche[0].toUpperCase() + this.props.selectedNiche.slice(1)}</h1>
-                <h1> {this.state.currentId[0].toUpperCase() + this.state.currentId.slice(1)} Tier
-                </h1>
+                <h1 className="productBrandStatement">{this.props.selectedNiche[0].toUpperCase() + this.props.selectedNiche.slice(1)}</h1>
+                <h2> {this.state.currentId[0].toUpperCase() + this.state.currentId.slice(1)} Tier
+                </h2>
 
                 <div className="productContainer">
                     {this.state.dataLoaded && this.state.counter === 6 ?
