@@ -15,8 +15,15 @@ class ProductPage extends Component {
             motherBoard: null,
             cooling: null,
             storage: null,
-            allRam: null
+            allRam: null,
+            counter: 0
         }
+    }
+
+    getCheck = () => {
+        this.setState({
+            counter: this.state.counter + 1
+        })
     }
     getAllParts = () => {
         fetch(`/api/builds/${this.props.selectedNiche}/${this.props.currentId}`, { credentials: 'include' })
@@ -24,7 +31,7 @@ class ProductPage extends Component {
             .then(res => {
                 this.setState({
                     allParts: res.parts,
-
+                    counter: this.state.counter + 1
                 })
             }).catch(err => console.log(err))
     }
@@ -34,6 +41,8 @@ class ProductPage extends Component {
             .then(res => {
                 this.setState({
                     allRam: res.part,
+                    counter: this.state.counter + 1
+
 
                 })
             }).catch(err => console.log(err))
@@ -44,6 +53,7 @@ class ProductPage extends Component {
             .then(res => {
                 this.setState({
                     motherBoard: res.part,
+                    counter: this.state.counter + 1
 
                 })
             }).catch(err => console.log(err))
@@ -55,6 +65,8 @@ class ProductPage extends Component {
             .then(res => {
                 this.setState({
                     cooling: res.part,
+                    counter: this.state.counter + 1,
+
                     dataLoaded: true,
                 })
             }).catch(err => console.log(err))
@@ -66,6 +78,8 @@ class ProductPage extends Component {
             .then(res => {
                 this.setState({
                     psu: res.part,
+                    counter: this.state.counter + 1
+
                 })
             }).catch(err => console.log(err))
     }
@@ -75,7 +89,9 @@ class ProductPage extends Component {
             .then(res => res.json())
             .then(res => {
                 this.setState({
-                    storage: res.part
+                    storage: res.part,
+                    counter: this.state.counter + 1
+
                 })
             }).catch(err => console.log(err))
     }
@@ -99,7 +115,7 @@ class ProductPage extends Component {
                 </h1>
 
                 <div className="productContainer">
-                    {this.state.dataLoaded ?
+                    {this.state.dataLoaded && this.state.counter === 6 ?
                         <div className="productContent">
                             <PartsForm
                                 allParts={this.state.allParts}
@@ -111,8 +127,7 @@ class ProductPage extends Component {
                                 auth={this.props.auth}
                             />
                         </div>
-                        : null}
-
+                        : <p>loading...</p>}
                 </div>
 
             </div>
