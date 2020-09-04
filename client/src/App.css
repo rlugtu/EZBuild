@@ -124,6 +124,15 @@ a {
   justify-content: space-evenly;
 }
 
+.nicheCategories {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-content: center;
+}
+
 .gamersHomeButton,.streamersHomeButton,.creatorsHomeButton {
   display: flex; 
   flex-direction: column;
@@ -160,19 +169,15 @@ a {
 .animalToken {
   border-radius: 50%;
   border: 5px solid #a74086;
-  width: 400px;
+  width: 300px;
+  height: 300px;
   background-image: url("https://imgur.com/r2utJL3.jpeg");
   background-size: cover;
   border-radius: 50%;
   margin: 20px;
 }
 
-/*.gamersHomeButton img {
-  border-radius: 20%;
-  border: 2px solid yellow;
-  width: 300px;
-  background-color: green;
-}*/
+
 
 .nicheImage {
   display: flex; 
@@ -189,6 +194,7 @@ a {
   max-width: 20vw;
   max-height: 30vh;
   object-fit: cover;
+  align-items: center;
 }
 footer {
   text-align: center;
@@ -196,6 +202,13 @@ footer {
   bottom: 0;
   width: 100%;
   height: 2.5rem;           
+}
+
+.pcInfoHolder {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 5px black solid;
 }
 
 .controller {
@@ -212,6 +225,7 @@ footer {
 .nicheProducts {
 display: flex;
 justify-content: space-evenly;
+flex-direction: row;
 height: 100%;
 }
 .nicheProductSingle {

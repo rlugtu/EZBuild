@@ -60,7 +60,8 @@ IF NOT EXISTS builds
     cpu_id INTEGER NOT NULL,
     gpu_id INTEGER NOT NULL,
     ram_id INTEGER NOT NULL,
-    ssd_id INTEGER NOT NULL
+    ssd_id INTEGER NOT NULL,
+    image_url VARCHAR
 );
 
 CREATE TABLE
