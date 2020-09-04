@@ -46,7 +46,7 @@ nav {
 .navRight {
   display: flex;
   justify-content: flex-end;
-  flex-direction: column;
+  flex-direction: row;
   text-align: right;
   font-family: 'a_atmosphericregular', cursive;
 }
@@ -139,9 +139,8 @@ a {
   display: flex; 
   flex-direction: column;
   min-height: 40vh;
-  width: 30%;
-  margin: 0px;
-  padding: 20px;
+  width: 20%;
+  margin: 20px;
   cursor: pointer;
   text-align: center;
 }
@@ -162,10 +161,18 @@ a {
   border-radius: 5%;
 }
 
+.streamersHomeButton p, h2, h3 {
+  color: #a74086;
+}
+
 .creatorsHomeButton {
   background-color: #ca76af;
   border: 4px solid #a74086;
   border-radius: 5%;
+}
+
+.creatorsHomeButton p, h2, h3 {
+  color: #a74086;
 }
 
 .animalToken {
@@ -177,9 +184,15 @@ a {
   background-image: url("https://imgur.com/r2utJL3.jpeg");
   background-size: cover;
   border-radius: 50%;
+
   margin: 20px;
   display: flex;
   justify-content: center;
+
+  margin: -50px;
+  position: float;
+  ;
+
 }
 
 
@@ -191,8 +204,10 @@ a {
   justify-content: space-between;
   width: ;
   height: 100%;
+
   overflow: hidden; 
 } */
+
 
 
 .nicheImage img {
@@ -288,11 +303,13 @@ flex-direction: row;
 .productContent {
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
+  border-radius: 10%;
+  border: 7px solid #a74086;
   padding: 20px;
-  background-color: darkgrey;
+  background-color: #ca76af;
   color: black;
   width: 500px;
+  color: #331329;
 }
 
 
