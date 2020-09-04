@@ -29,7 +29,7 @@ class NichePage extends Component {
     render() {
         return (
             <div className="storePage">
-                <h1>{this.state.currentPage}</h1>
+                <h1 className="nicheBanner">{this.state.currentPage}</h1>
                 <div className="nicheProducts">
                     {/* map through Niche Builds and render a component (to be made still ) with that builds info  */}
                     {this.state.allBuilds.map((build, i) =>
