@@ -26,9 +26,11 @@ class UserBuilds extends Component {
     componentDidMount() {
         this.getAllUserBuilds()
     }
-    // componentDidUpdate() {
-    //     this.getAllUserBuilds()
-    // }
+    componentDidUpdate(prevProps) {
+        if (this.props.userID !== prevProps.userID) {
+            this.getAllUserBuilds()
+        }
+    }
 
     deleteBuild = (id) => {
         fetch(`/api/user/${id}`, {
