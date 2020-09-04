@@ -16,7 +16,8 @@ const Home = (props) => {
             <div className="categories">
                 <div className="gamersHomeButton">
                     <div className="nicheImage">
-                        <Link to="/builds/gaming"><img className='animalToken' src="https://imgur.com/bvBFqIk.png " alt={"predator"}></img></Link>
+                    
+                        <Link to="/builds/gaming"><img className='animalToken' src="https://imgur.com/bvBFqIk.png " alt={"beast"}></img></Link>
                     </div>
                     <div>
                         <h1>BESTIA</h1>
