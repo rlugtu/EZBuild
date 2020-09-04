@@ -12,6 +12,7 @@ class PartsForm extends Component {
             cpu: props.allParts ? props.allParts[1].model : ' ',
             gpu: props.allParts ? props.allParts[0].model : ' ',
             total: '',
+            redirect: false,
         }
         this.handleChange = this.handleChange.bind(this);
     }
