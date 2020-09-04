@@ -1,7 +1,7 @@
 const db = require('../db/config')
 
 class UserBuild {
-    constructor({ id, cpu, gpu, ram, motherboard, cooling, storage, psu, desktop_case, total, user_id }) {
+    constructor({ id, cpu, gpu, ram, motherboard, cooling, storage, psu, desktop_case, title, notes, total, user_id }) {
         this.id = id || null;
         this.cpu = cpu;
         this.gpu = gpu
@@ -11,22 +11,24 @@ class UserBuild {
         this.storage = storage;
         this.psu = psu;
         this.desktop_case = desktop_case;
+        this.title = title;
+        this.notes = notes;
         this.total = total;
         this.user_id = user_id
     }
-    static getAllBuilds = () => {
+    static getAllBuilds() {
         return db
             .manyOrNone(`SELECT * FROM user_builds`)
             .then((builds) => builds.map((build) => new this(build))
             )
     }
-    static getAllBuildsForUser = (id) => {
+    static getAllBuildsForUser(id) {
         return db
             .manyOrNone(`SELECT * FROM user_builds WHERE user_id=$1`, [id])
             .then((builds) => builds.map((build) => new this(build))
             )
     }
-    static getBuildById = (id) => {
+    static getBuildById(id) {
         return db.oneOrNone(`
         SELECT * FROM user_builds WHERE id = $1`, [id])
             .then((build) => {
@@ -46,6 +48,8 @@ class UserBuild {
                 storage,  
                 psu,  
                 desktop_case,
+                title,
+                notes,
                 total,  
                 user_id)
         VALUES
@@ -57,6 +61,8 @@ class UserBuild {
             $/storage/,
             $/psu/,
             $/desktop_case/,
+            $/title/,
+            $/notes/,
             $/total/,
             $/user_id/)
         RETURNING *`, this).then(part => Object.assign(this, part))
@@ -75,7 +81,9 @@ class UserBuild {
             storage = $/storage/, 
             psu = $/psu/,
             desktop_case = $/desktop_case/,
-            total = $/total/,
+            title = $/title/,
+            notes = $/notes/,
+            total = $/total/
             WHERE id = $/id/
             RETURNING *
             `,

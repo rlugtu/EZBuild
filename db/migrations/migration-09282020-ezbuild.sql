@@ -83,5 +83,9 @@ IF NOT EXISTS user_builds
 (255),
     desktop_case VARCHAR
 (255),
-total INTEGER
+total INTEGER,
+name VARCHAR
+(255),
+notes VARCHAR
+(255)
     );
