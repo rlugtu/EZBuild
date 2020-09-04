@@ -75,7 +75,7 @@ a {
   background-color: #48001d; 
   display: flex;
   justify-content: center;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   color: rgba(242, 241, 239);
   background-image: linear-gradient(to right, #48001d, #411934);
@@ -128,10 +128,7 @@ a {
 }
 
 .nicheCategories {
-
-  display: flex;
-  /* flex-wrap: wrap; */
-  width: 19%;
+  width: 100%;
   justify-content: center;
   flex-direction: column;
   align-content: center;
