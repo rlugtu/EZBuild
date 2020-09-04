@@ -128,7 +128,7 @@ a {
 .nicheCategories {
   display: flex;
   /* flex-wrap: wrap; */
-  width: 100%;
+  width: 19%;
   justify-content: center;
   flex-direction: column;
   align-content: center;
